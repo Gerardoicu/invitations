@@ -3,65 +3,86 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Invitación XV — Sobre</title>
+  <title>Invitación XV — Arumy Guadalupe</title>
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-<!-- Capas de fondo -->
 <div class="layer layer-bg"></div>
 <div class="layer layer-clouds"></div>
 <div class="layer layer-light"></div>
 
-<!-- Centro fijo -->
-<main class="center">
-  <div class="envelope" aria-label="Sobre">
-    <div class="liner" aria-hidden="true"></div>
-
-    <!-- bolsillos/flaps -->
-    <div class="flap-left" aria-hidden="true"></div>
-    <div class="flap-right" aria-hidden="true"></div>
-    <div class="flap-bottom" aria-hidden="true"></div>
-    <div class="pocket" aria-hidden="true"></div>
-
-
-
-    <!-- solapa y sello con imagen -->
-    <div class="flap-top" aria-hidden="true"></div>
-    <div class="seal" aria-hidden="true">
-      <img src="seal.png" alt="Sello dorado" />
+<main class="stage">
+  <!-- SOBRE -->
+  <section class="hero">
+    <div class="envelope" aria-label="Sobre cerrado">
+      <div class="liner" aria-hidden="true"></div>
+      <div class="flap-left" aria-hidden="true"></div>
+      <div class="flap-right" aria-hidden="true"></div>
+      <div class="flap-bottom" aria-hidden="true"></div>
+      <div class="flap-top" aria-hidden="true"></div>
+      <div class="seal" aria-hidden="true">
+        <img src="seal.png" alt="Sello dorado" />
+      </div>
+      <div class="hint">Desliza ↓</div>
     </div>
-  </div>
+  </section>
 
-  <div class="hint">Desliza hacia abajo</div>
+  <!-- CARTA -->
+  <section class="letter-stage">
+    <div class="letter">
+      <div class="letter__content">
+        <div class="h1">MIS XV AÑOS</div>
+        <div class="name">Arumy Guadalupe García Lemus</div>
+        <div class="rule"></div>
+
+        <p class="p verse">
+          “Señor, mi corazón te da gracias, porque tu mano amorosa ha estado siempre en mi vida.
+          Con tu bendición y el amor de mi familia, me siento muy feliz de llegar a este momento.”
+        </p>
+
+        <p class="p">
+          Hay momentos inolvidables que se atesoran en el corazón para siempre.
+          Por esa razón quiero que compartas conmigo este día tan especial:
+          una noche mágica llena de música, baile y diversión.
+        </p>
+
+        <div class="section">
+          <h2>Mis Papás</h2>
+          <p class="p">Sandra Luz Lemus Almora y Rafael Uscanga Teoba</p>
+        </div>
+
+        <div class="section">
+          <h2>Mis Padrinos</h2>
+          <p class="p">Concepción Gómez Sánchez y Julián Enríquez Arzate</p>
+        </div>
+
+        <div class="rule"></div>
+
+        <div class="grid2">
+          <div>
+            <h2>Misa</h2>
+            <p class="p">6:00 PM</p>
+            <p class="p"><strong>Iglesia:</strong> San Martín de Porres</p>
+            <p class="p small">
+              Calle Violetas esquina Bulevar Rosinania,<br>
+              Infonavit Lomas del Vergel
+            </p>
+          </div>
+
+          <div>
+            <h2>Evento</h2>
+            <p class="p"><strong>Dirección:</strong>
+              Calle Flor de Cerezo entre Saúco y Camelias,<br>
+              Col. El Vergel
+            </p>
+            <p class="p">Citados a las <strong>7:00 PM</strong></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section style="height:100vh"></section>
 </main>
-
-<!-- Espacio para generar scroll -->
-<div class="scroll-space"></div>
-
-<!-- Control por scroll -->
-<script>
-  (function () {
-    const root = document.querySelector('.center');
-    let ticking = false;
-
-    function update() {
-      const max = Math.max(1, document.body.scrollHeight - window.innerHeight);
-      // Abre por completo aprox. al 60% del scroll total (ajústalo si quieres)
-      const progress = Math.min(1, window.scrollY / (max * 0.6));
-      root.style.setProperty('--open', progress.toFixed(3));
-      ticking = false;
-    }
-
-    window.addEventListener('scroll', () => {
-      if (!ticking) {
-        requestAnimationFrame(update);
-        ticking = true;
-      }
-    }, { passive: true });
-
-    // Inicializa al cargar
-    update();
-  })();
-</script>
 </body>
 </html>

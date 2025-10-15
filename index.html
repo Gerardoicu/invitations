@@ -7,23 +7,38 @@
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
+<!-- Capas de fondo -->
 <div class="layer layer-bg"></div>
 <div class="layer layer-clouds"></div>
 <div class="layer layer-light"></div>
+
+<!-- Esquinas decorativas -->
+<div class="corner corner-tr" aria-hidden="true"><img src="esquina-dorada.png" alt=""/></div>
+<div class="corner corner-tl" aria-hidden="true"><img src="esquina-dorada.png" alt=""/></div>
+<div class="corner corner-br" aria-hidden="true"><img src="esquina-dorada.png" alt=""/></div>
+<div class="corner corner-bl" aria-hidden="true"><img src="esquina-dorada.png" alt=""/></div>
 
 <main class="stage">
   <!-- SOBRE -->
   <section class="hero">
     <div class="envelope" aria-label="Sobre cerrado">
       <div class="liner" aria-hidden="true"></div>
+
+      <!-- bolsillos/flaps -->
       <div class="flap-left" aria-hidden="true"></div>
       <div class="flap-right" aria-hidden="true"></div>
       <div class="flap-bottom" aria-hidden="true"></div>
       <div class="flap-top" aria-hidden="true"></div>
+
+      <!-- flores doradas en la solapa -->
+      <img src="flores-doradas.png" alt="Flores doradas" class="flap-flowers" aria-hidden="true" />
+
+      <!-- sello -->
       <div class="seal" aria-hidden="true">
         <img src="seal.png" alt="Sello dorado" />
       </div>
-      <div class="hint">Desliza ↓</div>
+
+      <div class="hint">Toca el sello</div>
     </div>
   </section>
 
@@ -81,8 +96,27 @@
       </div>
     </div>
   </section>
-
-  <section style="height:100vh"></section>
 </main>
+
+<!-- JS -->
+<script>
+  const seal = document.querySelector('.seal');
+  const nameEl = document.querySelector('.name');
+  const letterStage = document.querySelector('.letter-stage');
+
+  if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
+  const resetToTop = () => requestAnimationFrame(() => window.scrollTo(0, 0));
+  window.addEventListener('load', resetToTop);
+  window.addEventListener('pageshow', resetToTop);
+
+  seal?.addEventListener('click', () => {
+    if (nameEl) {
+      nameEl.classList.remove('is-typing');
+      void nameEl.offsetWidth;
+      nameEl.classList.add('is-typing');
+    }
+    letterStage?.scrollIntoView({ behavior: 'smooth' });
+  });
+</script>
 </body>
 </html>

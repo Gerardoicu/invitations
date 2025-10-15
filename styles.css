@@ -1,16 +1,15 @@
 /* ===== Base ===== */
-*{box-sizing:border-box;margin:0;padding:0}
-html,body{height:100%}
-body{
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html, body { height: 100%; }
+
+body {
   font-family: system-ui, Segoe UI, Roboto, sans-serif;
-  color:#1E355B;
-  background:#fff;
-  overflow-x:hidden;
+  color: #1E355B;
+  background: #fff;
+  overflow-x: hidden;
 }
-.section {
-  text-align: center;
-  margin-top: 16px;
-}
+
+.section { text-align: center; margin-top: 16px; }
 
 h2 {
   color: #1E355B;
@@ -28,131 +27,264 @@ h2 {
   margin-bottom: 20px;
 }
 
-.small {
-  font-size: 0.9rem;
-  color: #2a4266;
-}
+.small { font-size: 0.9rem; color: #2a4266; }
 
-.grid2 h2 {
-  font-size: 1.2rem;
-  margin-bottom: 4px;
-  color: #B58A2B;
-}
+.grid2 h2 { font-size: 1.2rem; margin-bottom: 4px; color: #B58A2B; }
+.grid2 p { line-height: 1.4; }
 
-.grid2 p {
-  line-height: 1.4;
-}
+strong { color: #B58A2B; font-weight: 600; }
 
-strong {
-  color: #B58A2B;
-  font-weight: 600;
-}
 /* ===== Fondo ===== */
-.layer{position:fixed;inset:0;z-index:-1;pointer-events:none}
-.layer-bg{background:linear-gradient(180deg,#cfe9ff 0%,#ffffff 100%)}
-.layer-clouds{background:radial-gradient(60% 40% at 50% 0%,rgba(255,255,255,.9) 0%,transparent 70%);opacity:.85}
-.layer-light{background:radial-gradient(700px 450px at 50% 88%,rgba(255,255,255,.6),transparent 80%);mix-blend-mode:soft-light;opacity:.5}
+.layer { position: fixed; inset: 0; z-index: -1; pointer-events: none; }
+.layer-bg { background: linear-gradient(180deg, #cfe9ff 0%, #ffffff 100%); }
+.layer-clouds { background: radial-gradient(60% 40% at 50% 0%, rgba(255,255,255,.9) 0%, transparent 70%); opacity: .85; }
+.layer-light { background: radial-gradient(700px 450px at 50% 88%, rgba(255,255,255,.6), transparent 80%); mix-blend-mode: soft-light; opacity: .5; }
 
 /* ===== Escena ===== */
-.stage{display:block}
+.stage { display: block; }
 
 /* 1) SOBRE: ocupa la pantalla y NO se desvanece ni se abre */
-.hero{
-  height:100vh;                      /* ocupa la primera vista */
-  display:grid;place-items:center;
-  /* timeline presente por si lo quieres luego, pero no anima nada del sobre */
-  view-timeline-name: --hero;
+.hero {
+  height: 100vh;                 /* ocupa la primera vista */
+  display: grid;
+  place-items: center;
+  view-timeline-name: --hero;    /* reservado para posibles animaciones */
   view-timeline-axis: block;
 }
 
-.envelope{
-  position:relative;
-  width:min(92vw,560px);
-  aspect-ratio:3/2;
-  border-radius:14px;
-  background:linear-gradient(180deg,#e9f4ff 0%,#ffffff 100%);
-  border:2px solid #bcd5fa;
-  box-shadow:0 25px 60px rgba(0,0,0,.22);
-  overflow:hidden;
+.envelope {
+  position: relative;
+  width: min(92vw, 560px);
+  aspect-ratio: 3 / 2;
+  border-radius: 14px;
+  background: linear-gradient(180deg, #e9f4ff 0%, #ffffff 100%);
+  border: 2px solid #bcd5fa;
+  box-shadow: 0 25px 60px rgba(0,0,0,.22);
+  overflow: hidden;
 }
-.envelope .liner{
-  position:absolute;inset:10px;border-radius:10px;
-  background:
-          repeating-linear-gradient(45deg,rgba(30,53,91,.06) 0 10px,rgba(30,53,91,.03) 10px 20px),
-          linear-gradient(180deg,#f9fcff 0%,#f3f9ff 100%);
-}
-.flap-left,.flap-right,.flap-bottom,.flap-top{position:absolute;inset:0}
-.flap-left{background:linear-gradient(180deg,#dcecff 0%,#cfe3ff 100%);border-right:1px solid #c3d8fb}
-.flap-right{clip-path:polygon(100% 0, 50% 50%, 100% 100%);background:linear-gradient(180deg,#dcecff 0%,#cfe3ff 100%);border-left:1px solid #c3d8fb}
-.flap-bottom{clip-path:polygon(0 100%,100% 100%,50% 55%);background:linear-gradient(180deg,#e7f3ff 0%,#cde3ff 100%);border-top:1px solid #c3d8fb}
-.flap-top{clip-path:polygon(0 0,100% 0,50% 65%);background:linear-gradient(180deg,#f4faff 0%,#d8eaff 100%);border-bottom:2px solid #bcd5fa;box-shadow:inset 0 -12px 22px rgba(0,0,0,.06);z-index:2}
 
-.seal{
-  position:absolute;left:50%;top:60%;
-  transform:translate(-50%,-50%);
-  width:clamp(62px,14vw,88px);aspect-ratio:1/1;z-index:3;
+.envelope .liner {
+  position: absolute;
+  inset: 10px;
+  border-radius: 10px;
+  background:
+          repeating-linear-gradient(45deg, rgba(30,53,91,.06) 0 10px, rgba(30,53,91,.03) 10px 20px),
+          linear-gradient(180deg, #f9fcff 0%, #f3f9ff 100%);
 }
-.seal img{width:100%;height:100%;object-fit:contain}
-.hint{position:absolute;left:50%;bottom:-38px;transform:translateX(-50%);font-size:.95rem;color:#2b456b;opacity:.85}
+
+.flap-left,
+.flap-right,
+.flap-bottom,
+.flap-top { position: absolute; inset: 0; }
+
+.flap-left {
+  background: linear-gradient(180deg, #dcecff 0%, #cfe3ff 100%);
+  border-right: 1px solid #c3d8fb;
+}
+
+.flap-right {
+  clip-path: polygon(100% 0, 50% 50%, 100% 100%);
+  background: linear-gradient(180deg, #dcecff 0%, #cfe3ff 100%);
+  border-left: 1px solid #c3d8fb;
+}
+
+.flap-bottom {
+  clip-path: polygon(0 100%, 100% 100%, 50% 55%);
+  background: linear-gradient(180deg, #e7f3ff 0%, #cde3ff 100%);
+  border-top: 1px solid #c3d8fb;
+}
+
+.flap-top {
+  clip-path: polygon(0 0, 100% 0, 50% 65%);
+  background: linear-gradient(180deg, #f4faff 0%, #d8eaff 100%);
+  border-bottom: 2px solid #bcd5fa;
+  box-shadow: inset 0 -12px 22px rgba(0,0,0,.06);
+  z-index: 2;
+}
+
+.seal {
+  position: absolute;
+  left: 50%;
+  top: 60%;
+  transform: translate(-50%, -50%);
+  width: clamp(62px, 14vw, 88px);
+  aspect-ratio: 1 / 1;
+  z-index: 3;
+  cursor: pointer;
+}
+
+.seal img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+  transform-origin: center;
+  will-change: transform;
+  animation: heartbeat 1.8s ease-in-out infinite;
+}
+
+.hint {
+  position: absolute;
+  left: 50%;
+  bottom: -38px;
+  transform: translateX(-50%);
+  font-size: .95rem;
+  color: #2b456b;
+  opacity: .85;
+}
 
 /* 2) CARTA: aparece con el PRIMER scroll */
-.letter-stage{
-  /* sin márgenes negativos: el sobre se va normal hacia arriba */
-  height:200vh;
-  padding-inline:min(4vw,24px);
-  position:relative;
+.letter-stage {
+  height: 200vh;                       /* el sobre se va normal hacia arriba */
+  padding-inline: min(4vw, 24px);
+  position: relative;
   view-timeline-name: --letterView;
   view-timeline-axis: block;
 }
 
 /* Hoja tamaño carta sticky y centrada */
-.letter{
+.letter {
   --w: min(92vw, 820px);
-  --ratio: calc(11/8.5);
+  --ratio: calc(11 / 8.5);
+
   width: var(--w);
   aspect-ratio: 8.5 / 11;
   max-height: min(92vh, calc(var(--w) * var(--ratio)));
   position: sticky;
   top: 50%;
   transform: translateY(-50%) scale(.96);
-  margin-inline:auto;
-  border-radius:12px;
-  background:#fff;
-  box-shadow:0 24px 60px rgba(0,0,0,.25),0 2px 0 rgba(0,0,0,.05) inset;
-  border:1px solid #e8eef8;
-  overflow:hidden;
+  margin-inline: auto;
+  border-radius: 12px;
+  background: #fff;
+  box-shadow: 0 24px 60px rgba(0,0,0,.25), 0 2px 0 rgba(0,0,0,.05) inset;
+  border: 1px solid #e8eef8;
+  overflow: hidden;
 
-  /* clave: invisible al cargar; aparece apenas entras a esta sección */
-  opacity:0;
+  /* invisible al cargar; aparece apenas entras a esta sección */
+  opacity: 0;
   animation: showLetter 1 both;
   animation-timeline: --letterView;
   animation-range: entry 0% contain 20%;
 }
-@keyframes showLetter{
-  from{opacity:0; transform: translateY(-50%) scale(.9)}
-  to  {opacity:1; transform: translateY(-50%) scale(1)}
+
+@keyframes showLetter {
+  from { opacity: 0; transform: translateY(-50%) scale(.9); }
+  to   { opacity: 1; transform: translateY(-50%) scale(1); }
 }
 
-.letter__content{
-  height:100%;
-  padding:clamp(20px, 4vw, 40px);
-  display:flex;flex-direction:column;gap:16px;
-  overflow:auto;
+.letter__content {
+  height: 100%;
+  padding: clamp(20px, 4vw, 40px);
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  overflow: auto;
 }
 
-.h1{font-size:clamp(24px,3.2vw,36px); text-align:center; letter-spacing:.06em}
+.h1 { font-size: clamp(24px, 3.2vw, 36px); text-align: center; letter-spacing: .06em; }
+
+.name {
+  font-family: "Great Vibes", cursive;
+  font-size: clamp(28px, 5vw, 48px);
+  text-align: center;
+  color: #B58A2B;
+  text-shadow: 0 1px 0 rgba(0,0,0,.08);
+  margin-top: 4px;
+}
+
+.rule { height: 1px; background: linear-gradient(90deg, transparent, #EFD780 50%, transparent); margin: 8px 0 12px; }
+.p { line-height: 1.6; font-size: clamp(14px, 1.6vw, 17px); color: #2a4266; }
+.grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.tag { font-weight: 600; color: #1E355B; }
+
+/* Interacción del sello */
+.seal:hover img { animation-duration: 1.4s; }  /* un poco más “vivo” al hover */
+.seal:active img { transform: scale(0.98); }   /* feedback al click */
 .name{
-  font-family:"Great Vibes", cursive;
-  font-size:clamp(28px, 5vw, 48px);
-  text-align:center;color:#B58A2B;
-  text-shadow:0 1px 0 rgba(0,0,0,.08);margin-top:4px
+  display:inline-block;
+  white-space:nowrap;
+  background:linear-gradient(90deg,#B58A2B,#EFD780);
+  -webkit-background-clip:text;
+  background-clip:text;
+  -webkit-text-fill-color:transparent;
+  color:transparent;
 }
-.rule{height:1px;background:linear-gradient(90deg,transparent,#EFD780 50%,transparent);margin:8px 0 12px}
-.p{line-height:1.6;font-size:clamp(14px,1.6vw,17px); color:#2a4266}
-.grid2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
-.tag{font-weight:600;color:#1E355B}
+
+/* Efecto de escritura cuando se agrega la clase */
+.name.is-typing{
+  overflow:hidden;
+  width:0;
+  opacity:1;
+  border-right:2px solid #EFD780;           /* cursor dorado */
+  animation: typeIn 2.8s steps(30,end) forwards;
+}
+.flap-flowers {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%) rotate(1deg);
+  width: 40%;
+  height: auto;
+  opacity: 1;
+  z-index: 4; /* sobre la flap-top pero debajo del sello */
+  pointer-events: none;
+  mix-blend-mode: multiply; /* o 'screen' si quieres brillo */
+
+}
+:root { --corner-size: clamp(90px, 11vw, 200px); }
+
+.corner{
+  position: fixed;
+  width: var(--corner-size);
+  height: var(--corner-size);
+  z-index: -1;                 /* por detrás del sobre/carta, por delante del fondo */
+  pointer-events: none;
+  /* si tu PNG es realmente transparente, no necesitas mezcla.
+     Si ves “cuadriculado”, el PNG NO es transparente. */
+}
+
+.corner img{
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+  /* sutil relieve dorado sin invadir */
+  filter: drop-shadow(0 2px 3px rgba(239,215,128,.35));
+  /* si quieres integrarlo más al fondo: */
+  /* mix-blend-mode: multiply; */
+}
+
+/* Orientación y posición */
+.corner-tr{ top: 0; right: 0; transform: rotate(0deg); }
+.corner-tl{ top: 0; left: 0; transform: scaleX(-1); }
+.corner-br{ bottom: 0; right: 0; transform: scaleY(-1); }
+.corner-bl{ bottom: 0; left: 0; transform: scale(-1, -1); }
+
+/* peinado fino para que “toquen” el borde */
+.corner-tl, .corner-tr{ margin-top: -4px; }
+.corner-bl, .corner-br{ margin-bottom: -4px; }
+.corner-tl, .corner-bl{ margin-left: -4px; }
+.corner-tr, .corner-br{ margin-right: -4px; }
+@keyframes typeIn{
+  0%   { width:0;   opacity:1; }
+  100% { width:100%; opacity:1; border-right-color:transparent; }
+}
+/* Latido del sello */
+@keyframes heartbeat {
+  0%   { transform: scale(1); }
+  10%  { transform: scale(1.06); }
+  20%  { transform: scale(1.00); }
+  30%  { transform: scale(1.10); }
+  40%  { transform: scale(1.00); }
+  100% { transform: scale(1); }
+}
+
+/* Accesibilidad: respeta usuarios con “reducir movimiento” */
+@media (prefers-reduced-motion: reduce) {
+  .seal img { animation: none; }
+}
 
 /* Fallback: si no hay scroll-timeline, mostramos la carta desde el inicio */
-@supports not (animation-timeline: auto){
-  .letter{opacity:1; transform: translateY(-50%) scale(1)}
+@supports not (animation-timeline: auto) {
+  .letter { opacity: 1; transform: translateY(-50%) scale(1); }
 }

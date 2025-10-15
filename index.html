@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mis XV Años - Arumy Guadalupe</title>
+  <link rel="stylesheet" href="assets/styles.css" />
+</head>
+<body>
+  <main class="card">
+    <!-- Corona (se mantiene) -->
+    <img src="assets/crown.png" alt="Corona dorada" class="crown" />
+
+    <div class="content-up">
+      <h2 class="title">MIS XV AÑOS</h2>
+      <h1 class="name">Arumy Guadalupe</h1>
+
+      <!-- Sobre con sello cálido dorado de bordes irregulares -->
+      <section class="envelope" aria-label="Sobre">
+        <div class="env-body"></div>
+        <div class="env-flap"></div>
+        <div class="env-shadow"></div>
+
+        <div class="seal">
+          <!-- Sello SVG con bordes irregulares + degradado cálido dorado -->
+          <svg class="seal-svg" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <defs>
+              <radialGradient id="goldWarm" cx="35%" cy="35%" r="70%">
+                <stop offset="0%" stop-color="#FFD76D"/>
+                <stop offset="40%" stop-color="#E7B64A"/>
+                <stop offset="72%" stop-color="#D4A03A"/>
+                <stop offset="100%" stop-color="#A66B1F"/>
+              </radialGradient>
+              <filter id="softShadow" x="-30%" y="-30%" width="160%" height="160%">
+                <feDropShadow dx="0" dy="6" stdDeviation="6" flood-color="rgba(0,0,0,0.28)"/>
+              </filter>
+            </defs>
+            <!-- Borde irregular tipo cera -->
+            <path filter="url(#softShadow)"
+                  fill="url(#goldWarm)"
+                  d="M100,20
+                     C130,18 163,32 176,58
+                     C189,83 180,116 175,135
+                     C170,154 156,170 135,178
+                     C114,186 87,190 63,182
+                     C39,174 18,154 16,131
+                     C14,108 23,89 28,73
+                     C33,57 46,44 63,34
+                     C80,24 92,21 100,20 Z"/>
+            <!-- Aro ligeramente grueso (mate) -->
+            <circle cx="100" cy="110" r="70"
+                    fill="none"
+                    stroke="rgba(120,86,18,.85)"
+                    stroke-width="8"/>
+          </svg>
+
+          <!-- Flor blanca encima (gypsophila) -->
+          <svg class="gypsophila" viewBox="0 0 120 120" aria-hidden="true">
+            <g fill="none" stroke="#f7f7f7" stroke-width="2" stroke-linecap="round">
+              <path d="M60 95 C55 80, 50 72, 45 60"/><circle cx="45" cy="60" r="4" fill="#f7f7f7"/>
+              <path d="M60 95 C62 80, 66 72, 72 60"/><circle cx="72" cy="60" r="4" fill="#f7f7f7"/>
+              <path d="M60 95 C58 82, 56 72, 54 65"/><circle cx="54" cy="65" r="3.2" fill="#f7f7f7"/>
+            </g>
+          </svg>
+        </div>
+      </section>
+
+      <p class="touch">Tocar el Sobre</p>
+    </div>
+  </main>
+</body>
+</html>

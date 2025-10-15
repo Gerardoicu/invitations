@@ -1,0 +1,181 @@
+/* =========================
+   Reset y base
+========================= */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html, body { height: 100%; }
+body {
+  overflow-y: scroll;
+  overflow-x: hidden;
+  font-family: system-ui, sans-serif;
+  color: #1E355B;
+  background: #ffffff;
+}
+
+/* =========================
+   Capas de fondo
+========================= */
+.layer {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  will-change: transform;
+}
+.layer-bg     { background: linear-gradient(180deg, #c9e8ff 0%, #ffffff 100%); }
+.layer-clouds { background: radial-gradient(60% 40% at 50% 0%, rgba(255,255,255,0.9) 0%, transparent 70%); opacity:.85; }
+.layer-light  { background: radial-gradient(700px 450px at 50% 88%, rgba(255,255,255,.6), transparent 80%); mix-blend-mode: soft-light; opacity:.5; }
+
+/* =========================
+   Centro fijo y variable
+========================= */
+.center {
+  position: fixed;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  z-index: 10;
+  padding: 24px;
+  --open: 0; /* se actualiza por JS */
+}
+
+/* =========================
+   Sobre
+========================= */
+.envelope {
+  /* Importante: no fijes --open aquí, debe heredar de .center */
+  position: relative;
+  width: min(92vw, 560px);
+  aspect-ratio: 3 / 2;
+  border-radius: 14px;
+  background: linear-gradient(180deg,#e9f4ff 0%,#ffffff 100%);
+  border: 2px solid #bcd5fa;
+  box-shadow: 0 25px 60px rgba(0,0,0,.22);
+  overflow: hidden;
+  transform: translateZ(0);
+}
+
+/* Forro interior */
+.envelope .liner {
+  position: absolute;
+  inset: 10px;
+  border-radius: 10px;
+  background:
+          repeating-linear-gradient(45deg, rgba(30,53,91,.06) 0 10px, rgba(30,53,91,.03) 10px 20px),
+          linear-gradient(180deg,#f9fcff 0%, #f3f9ff 100%);
+  filter: saturate(.9) contrast(1.02);
+  z-index: 0;
+}
+
+/* Flaps base */
+.flap-left, .flap-right, .flap-bottom, .flap-top {
+  position: absolute;
+  inset: 0;
+  transform-origin: center;
+}
+
+/* Lateral izquierdo */
+.flap-left {
+
+  background: linear-gradient(180deg,#dcecff 0%, #cfe3ff 100%);
+  border-right: 1px solid #c3d8fb;
+  filter: drop-shadow(0 1px 0 rgba(255,255,255,.6));
+  z-index: 1;
+}
+
+/* Lateral derecho */
+.flap-right {
+  clip-path: polygon(100% 0, 50% 50%, 100% 100%);
+  background: linear-gradient(180deg,#dcecff 0%, #cfe3ff 100%);
+  border-left: 1px solid #c3d8fb;
+  filter: drop-shadow(0 1px 0 rgba(255,255,255,.6));
+  z-index: 1;
+}
+
+/* Inferior */
+.flap-bottom {
+  clip-path: polygon(0 100%, 100% 100%, 50% 55%);
+  background: linear-gradient(180deg,#e7f3ff 0%, #cde3ff 100%);
+  border-top: 1px solid #c3d8fb;
+  z-index: 1;
+}
+
+/* Solapa superior animada */
+.flap-top {
+  clip-path: polygon(0 0, 100% 0, 50% 65%);
+  background: linear-gradient(180deg,#f4faff 0%, #d8eaff 100%);
+  border-bottom: 2px solid #bcd5fa;
+  box-shadow: inset 0 -12px 22px rgba(0,0,0,.06);
+  z-index: 3;
+  transform-origin: 50% 0%;
+  transform: perspective(900px) rotateX(calc(var(--open) * -178deg));
+  transition: transform .8s cubic-bezier(.2,.65,.15,1);
+}
+
+/* Sello */
+.seal {
+  position: absolute;
+  left: 50%;
+  top: 60%;
+  transform: translate(-50%, -50%) scale(calc(1 - .08 * var(--open)));
+  width: clamp(62px, 14vw, 88px);
+  aspect-ratio: 1 / 1;
+  z-index: 4;
+  opacity: calc(1 - var(--open));
+  transition: transform .6s ease, opacity .6s ease;
+}
+.seal img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  pointer-events: none;
+  user-select: none;
+}
+
+/* Carta interna */
+.letter {
+  position: absolute;
+  left: 8%;
+  right: 8%;
+  bottom: 10%;
+  height: 70%;
+  border-radius: 10px;
+  background: linear-gradient(180deg,#ffffff 0%, #f7fbff 100%);
+  box-shadow: 0 6px 18px rgba(0,0,0,.08);
+  z-index: 2;
+  overflow: hidden;
+
+  /* Animada con --open */
+  transform:
+          translateY(40%)
+          scaleX(calc(.72 + .30 * var(--open)))
+          scaleY(calc(.20 + .80 * var(--open)));
+  opacity: calc(0 + 1 * var(--open));
+  box-shadow: 0 6px 18px rgba(0,0,0, calc(.06 + .10 * var(--open)));
+  border: 1px solid rgba(188,213,250, calc(.0 + .6 * var(--open)));
+  transition: transform .8s cubic-bezier(.2,.65,.15,1);
+}
+
+/* Brillo de la carta: avanza según --open */
+.letter-shine {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(120deg, rgba(255,255,255,0) 0%, rgba(255,255,255,.55) 35%, rgba(255,255,255,0) 70%);
+  transform: translateX(calc(-120% + 240% * var(--open)));
+  transition: transform 1s ease .2s;
+}
+
+/* Texto de ayuda */
+.hint {
+  margin-top: 16px;
+  font-size: 1rem;
+  color: #2b456b;
+  opacity: .85;
+  text-align: center;
+  user-select: none;
+}
+
+/* Scroll artificial para probar la animación */
+.scroll-space { height: 110vh; }
+
+/* Accesibilidad del sobre si se navega con teclado (focus visual en todo el bloque) */
+.envelope:focus-visible { outline: 3px solid #7db6ff; outline-offset: 6px; }

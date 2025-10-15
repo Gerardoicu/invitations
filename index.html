@@ -2,71 +2,66 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Mis XV Años - Arumy Guadalupe</title>
-  <link rel="stylesheet" href="assets/styles.css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Invitación XV — Sobre</title>
+  <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <main class="card">
-    <!-- Corona (se mantiene) -->
-    <img src="assets/crown.png" alt="Corona dorada" class="crown" />
+<!-- Capas de fondo -->
+<div class="layer layer-bg"></div>
+<div class="layer layer-clouds"></div>
+<div class="layer layer-light"></div>
 
-    <div class="content-up">
-      <h2 class="title">MIS XV AÑOS</h2>
-      <h1 class="name">Arumy Guadalupe</h1>
+<!-- Centro fijo -->
+<main class="center">
+  <div class="envelope" aria-label="Sobre">
+    <div class="liner" aria-hidden="true"></div>
 
-      <!-- Sobre con sello cálido dorado de bordes irregulares -->
-      <section class="envelope" aria-label="Sobre">
-        <div class="env-body"></div>
-        <div class="env-flap"></div>
-        <div class="env-shadow"></div>
+    <!-- bolsillos/flaps -->
+    <div class="flap-left" aria-hidden="true"></div>
+    <div class="flap-right" aria-hidden="true"></div>
+    <div class="flap-bottom" aria-hidden="true"></div>
+    <div class="pocket" aria-hidden="true"></div>
 
-        <div class="seal">
-          <!-- Sello SVG con bordes irregulares + degradado cálido dorado -->
-          <svg class="seal-svg" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-            <defs>
-              <radialGradient id="goldWarm" cx="35%" cy="35%" r="70%">
-                <stop offset="0%" stop-color="#FFD76D"/>
-                <stop offset="40%" stop-color="#E7B64A"/>
-                <stop offset="72%" stop-color="#D4A03A"/>
-                <stop offset="100%" stop-color="#A66B1F"/>
-              </radialGradient>
-              <filter id="softShadow" x="-30%" y="-30%" width="160%" height="160%">
-                <feDropShadow dx="0" dy="6" stdDeviation="6" flood-color="rgba(0,0,0,0.28)"/>
-              </filter>
-            </defs>
-            <!-- Borde irregular tipo cera -->
-            <path filter="url(#softShadow)"
-                  fill="url(#goldWarm)"
-                  d="M100,20
-                     C130,18 163,32 176,58
-                     C189,83 180,116 175,135
-                     C170,154 156,170 135,178
-                     C114,186 87,190 63,182
-                     C39,174 18,154 16,131
-                     C14,108 23,89 28,73
-                     C33,57 46,44 63,34
-                     C80,24 92,21 100,20 Z"/>
-            <!-- Aro ligeramente grueso (mate) -->
-            <circle cx="100" cy="110" r="70"
-                    fill="none"
-                    stroke="rgba(120,86,18,.85)"
-                    stroke-width="8"/>
-          </svg>
 
-          <!-- Flor blanca encima (gypsophila) -->
-          <svg class="gypsophila" viewBox="0 0 120 120" aria-hidden="true">
-            <g fill="none" stroke="#f7f7f7" stroke-width="2" stroke-linecap="round">
-              <path d="M60 95 C55 80, 50 72, 45 60"/><circle cx="45" cy="60" r="4" fill="#f7f7f7"/>
-              <path d="M60 95 C62 80, 66 72, 72 60"/><circle cx="72" cy="60" r="4" fill="#f7f7f7"/>
-              <path d="M60 95 C58 82, 56 72, 54 65"/><circle cx="54" cy="65" r="3.2" fill="#f7f7f7"/>
-            </g>
-          </svg>
-        </div>
-      </section>
 
-      <p class="touch">Tocar el Sobre</p>
+    <!-- solapa y sello con imagen -->
+    <div class="flap-top" aria-hidden="true"></div>
+    <div class="seal" aria-hidden="true">
+      <img src="seal.png" alt="Sello dorado" />
     </div>
-  </main>
+  </div>
+
+  <div class="hint">Desliza hacia abajo</div>
+</main>
+
+<!-- Espacio para generar scroll -->
+<div class="scroll-space"></div>
+
+<!-- Control por scroll -->
+<script>
+  (function () {
+    const root = document.querySelector('.center');
+    let ticking = false;
+
+    function update() {
+      const max = Math.max(1, document.body.scrollHeight - window.innerHeight);
+      // Abre por completo aprox. al 60% del scroll total (ajústalo si quieres)
+      const progress = Math.min(1, window.scrollY / (max * 0.6));
+      root.style.setProperty('--open', progress.toFixed(3));
+      ticking = false;
+    }
+
+    window.addEventListener('scroll', () => {
+      if (!ticking) {
+        requestAnimationFrame(update);
+        ticking = true;
+      }
+    }, { passive: true });
+
+    // Inicializa al cargar
+    update();
+  })();
+</script>
 </body>
 </html>

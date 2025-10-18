@@ -141,14 +141,6 @@ strong { color: #B58A2B; font-weight: 600; }
   opacity: .85;
 }
 
-/* 2) CARTA: aparece con el PRIMER scroll */
-.letter-stage {
-  height: 200vh;                       /* el sobre se va normal hacia arriba */
-  padding-inline: min(4vw, 24px);
-  position: relative;
-  view-timeline-name: --letterView;
-  view-timeline-axis: block;
-}
 
 /* Hoja tamaño carta sticky y centrada */
 .letter {
@@ -192,7 +184,7 @@ strong { color: #B58A2B; font-weight: 600; }
 .h1 { font-size: clamp(24px, 3.2vw, 36px); text-align: center; letter-spacing: .06em; }
 
 .name {
-  font-family: "Great Vibes", cursive;
+  font-family: "Montecarlo", cursive;
   font-size: clamp(28px, 5vw, 48px);
   text-align: center;
   color: #B58A2B;
@@ -450,9 +442,9 @@ strong { color: #B58A2B; font-weight: 600; }
   text-align: center;
 }
 
-/* Nombre con fuente Great Vibes y animación de izquierda a derecha */
+/* Nombre con fuente Montecarlo y animación de izquierda a derecha */
 .hero-name {
-  font-family: "Great Vibes", cursive;
+  font-family: "Montecarlo", cursive;
   font-size: clamp(28px, 3vw, 40px);
   background: linear-gradient(90deg, #B58A2B, #EFD780);
   -webkit-background-clip: text;
@@ -529,7 +521,8 @@ strong { color: #B58A2B; font-weight: 600; }
 }
 /* Escenario de la carta */
 .letter-stage {
-  min-height: 200vh;                       /* espacio para el efecto */
+  height: 200vh;
+  min-height: 200vh;
   position: relative;
   padding-inline: min(4vw, 24px);
   view-timeline-name: --letterView;
@@ -575,11 +568,11 @@ strong { color: #B58A2B; font-weight: 600; }
 @keyframes showLetter {
   from {
     opacity: 0;
-    transform: translateY(-40%) scale(0.9);
+    transform: translateY(60px) scale(0.95);
   }
   to {
     opacity: 1;
-    transform: translateY(-0%) scale(1);
+    transform: translateY(0) scale(1);
   }
 }
 /* --- Flores decorativas en esquinas superiores --- */
@@ -792,7 +785,7 @@ img.ornate-divider {
 }
 
 .parents-title {
-  font-family: "Great Vibes", cursive;
+  font-family: "MonteCarlo", cursive;
   font-size: clamp(26px, 3vw, 38px);
   color: #B58A2B;
   margin-bottom: 8px;
@@ -828,13 +821,6 @@ img.ornate-divider {
   font-family: "Playfair Display", serif;
 }
 
-/* título “Mis Padres” */
-.parents-title {
-  font-family: "Great Vibes", cursive;
-  font-size: clamp(26px, 3vw, 38px);
-  color: #B58A2B;
-  margin-bottom: 8px;
-}
 
 /* nombres */
 .parents-names {
@@ -875,7 +861,7 @@ img.ornate-divider {
 
 /* nombre en el centro */
 .quince-name {
-  font-family: "Great Vibes", cursive;
+  font-family: "Montecarlo", cursive;
   font-size: clamp(26px, 3.2vw, 42px);
   background: linear-gradient(90deg, #B58A2B, #EFD780);
   -webkit-background-clip: text;
@@ -958,7 +944,7 @@ img.ornate-divider {
 
 /* título “Mis Padrinos” */
 .godparents-title {
-  font-family: "Great Vibes", cursive;
+  font-family: "Montecarlo", cursive;
   font-size: clamp(26px, 3vw, 38px);
   color: #B58A2B;
   margin-bottom: 8px;
@@ -1026,7 +1012,7 @@ img.ornate-divider {
 
 /* textos */
 .reception-title {
-  font-family: "Great Vibes", cursive;
+  font-family: "Montecarlo", cursive;
   font-size: clamp(22px, 2.6vw, 30px);
   color: #B58A2B;
   margin: 4px 0 8px;
@@ -1114,7 +1100,7 @@ img.ornate-divider {
 
 /* Tipografía y espaciados como la referencia */
 .reception-title{
-  font-family:"Great Vibes", cursive;
+  font-family:"Montecarlo", cursive;
   font-size: clamp(24px, 2.7vw, 34px);
   color:#B58A2B;
   margin: 2px 0 6px;
@@ -1208,7 +1194,7 @@ img.ornate-divider {
 }
 
 .attire-title {
-  font-family: "Great Vibes", cursive;
+  font-family: "Montecarlo", cursive;
   font-size: clamp(28px, 3vw, 36px);
   color: #B58A2B;
   margin-bottom: 12px;
@@ -1464,12 +1450,353 @@ img.ornate-divider {
   filter: drop-shadow(0 3px 6px rgba(0, 0, 0, .25));
   transition: all 0.3s ease;
 }
+
+.reception-cups-png{
+  width: 50%;
+}
+
+/* Laptops medianos ↓ */
+@media (max-width: 1200px) {
+  :root { --corner-size: clamp(220px, 50vw, 420px); }
+
+  .letter-stage { height: 180vh; min-height: 180vh; } /* conserva scroll para “apertura” */
+  .xv-label { margin-top: -280px; }                   /* evita que tape a la chica */
+}
+
+/* Tablets / pantallas ≤ 992px */
+@media (max-width: 992px) {
+  :root { --corner-size: clamp(200px, 48vw, 380px); }
+
+  .hero { height: 72vh; }                             /* asegura “primera página” visible */
+  .envelope { width: min(92vw, 460px); }
+
+  .letter-stage { height: 170vh; min-height: 170vh; } /* scroll suficiente para ver la carta */
+  .circle-glow { transform: none; width: min(420px, 80vw); margin-top: -40px; }
+  .xv-label { margin-top: -240px; left: 0; transform: none; }
+
+  .flowers-top-left,
+  .flowers-top-right { width: clamp(200px, 32vw, 420px); top: -24px; }
+}
+
+/* Móviles ≤ 768px */
 @media (max-width: 768px) {
-  .attire-flowers {
-    top: 0;
-    right: 0;
-    width: clamp(100px, 30vw, 160px);
+  :root { --corner-size: clamp(170px, 46vw, 320px); }
+
+  .hero { height: 78vh; padding: 0 12px; }           /* sobre ocupa casi toda la primera vista */
+  .envelope { width: min(94vw, 420px); }
+
+  .letter-stage { height: 160vh; min-height: 160vh; } /* “apertura” con poco scroll */
+  .letter { --w: min(94vw, 720px); }                  /* carta un poco más angosta en móviles */
+
+  .quinces-crown { width: clamp(120px, 22vw, 180px); }
+  .circle-glow { width: min(380px, 84vw); margin-top: -30px; }
+  .xv-label { margin-top: -200px; }
+
+  .quinces-girl {
+    width: clamp(220px, 58vw, 300px);
+    margin: -30px auto 0 auto;                       /* centrada sin romper composición */
   }
+
+  .parents-flowers {
+    top: 20px; right: 10px;
+    width: clamp(110px, 26vw, 180px);
+  }
+
+  .final-flowers { width: clamp(180px, 48vw, 300px); }
+}
+.envelope { perspective: 900px; transform-style: preserve-3d; position: relative; z-index: 1; }
+
+.envelope::before {
+  content: "";
+  position: absolute;
+  top: -62%;
+  left: 0;
+  width: 100%;
+  height: 62%;
+  clip-path: polygon(0 100%, 50% 0, 100% 100%);
+  background: linear-gradient(180deg, #d8eaff 0%, #f4faff 100%);
+  z-index: 0;
+  opacity: 0;
+  transform: translateY(-8px);
+  transition:
+          opacity 0.8s ease-in-out,
+          transform 0.8s ease-in-out;
+
+  /* 🔹 borde tenue tipo sobre */
+  border: 1.5px solid #bcd5fa;
+  box-shadow:
+          inset 0 2px 4px rgba(0,0,0,.08),
+          0 2px 4px rgba(255,255,255,.25);
+  border-bottom: none;
+}
+
+/* visible solo cuando hay scroll */
+body.scrolled .envelope::before {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* tu nombre encima de la solapa */
+.hero-name{ position:relative; z-index:2; }
+
+.flap-top{
+  transform-origin: 50% 0%;
+  transition: transform .35s ease;
+  backface-visibility: hidden;
+}
+
+/* Abierta cuando hay scroll */
+body.scrolled .envelope .flap-top{
+  transform: rotateX(-168deg);
+}
+.flap-left::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  /* base en las esquinas superiores, vértice al centro */
+  clip-path: polygon(0 0, 100% 0, 50% 50%);
+  background: linear-gradient(180deg, #cfe0ff 0%, #bcd3fc 100%);
+  box-shadow:
+          inset 0 -1px 0 rgba(188,213,250,.9),
+          inset 0 10px 14px rgba(0,0,0,.06);
+  opacity:0;
+  transition: opacity .28s ease;
+  pointer-events:none;
+}
+
+/* Se muestran ambos (arriba y abajo) cuando hay scroll */
+body.scrolled .flap-left::before,
+body.scrolled .flap-left::after{
+  opacity:1;
 }
 
 
+/* =========================
+   SOLO MEDIA QUERIES (mantiene: sobre primero, carta al scroll)
+   ========================= */
+
+/* ≥ 993px: escritorio / tablet landscape */
+@media (min-width: 993px) {
+
+  /* Trae corona + “MIS XV AÑOS” + nombre sobre el sobre (sin alterar el DOM) */
+  .crown,
+  .hero-subtitle,
+  .hero-name {
+    position: relative;
+    z-index: 5;                /* por encima del sobre */
+    pointer-events: none;      /* no estorban clic al sello */
+  }
+
+  /* ajustes finos de spacing encima del sobre */
+  .crown        { margin-bottom: 6px; }
+  .hero-subtitle{ margin-top: -10px; }
+  .hero-name    { margin-top: 2px; opacity: 1; }
+
+  /* Asegura que la carta arranque fuera de la vista */
+  .letter-stage { height: 170vh; min-height: 170vh; padding-inline: min(4vw,24px); }
+}
+
+/* ≤ 992px: tablet y abajo */
+@media (max-width: 992px) {
+  /* 1) SOBRE domina toda la primera vista */
+  .hero { height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center; }
+
+  /* 2) Reubica corona/título/nombre visualmente dentro del hero (sobre el sobre) */
+  .crown,
+  .hero-subtitle,
+  .hero-name {
+    position: relative;
+    z-index: 5;
+    pointer-events: none;            /* no bloquean el sello */
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+  }
+
+  /* tamaños y separaciones cómodas */
+  .crown         { width: clamp(90px, 22vw, 160px); margin-top: -10px; margin-bottom: 2px; }
+  .hero-subtitle { font-size: clamp(18px, 2.6vw, 22px); margin-top: -8px; margin-bottom: 2px; letter-spacing: .08em; }
+  .hero-name     { font-size: clamp(28px, 5.6vw, 44px); margin-top: 0; opacity: 1; }
+
+  /* 3) El sobre queda centrado y respira en móvil/tablet */
+  .envelope-wrap { width: 100%; display: flex; justify-content: center; }
+  .envelope      { width: min(92vw, 460px); border-radius: 14px; }
+
+  /* 4) La carta aparece solo al hacer scroll (suficiente altura para el efecto) */
+  .letter-stage  { height: 180vh; min-height: 180vh; padding-inline: min(3vw, 16px); }
+
+  /* 5) Evitar desbordes por decoraciones en pantallas angostas */
+  .corner { display: none; }
+
+  /* 6) Nada sobresalga del ancho en tablet */
+  img, svg, video, canvas { max-width: 100%; height: auto; }
+  .grid2 { grid-template-columns: 1fr !important; }
+}
+
+/* ≤ 768px: móvil grande */
+@media (max-width: 768px) {
+  /* Hero sigue ocupando toda la primera pantalla */
+  .hero { height: 100vh; }
+
+  /* Corona + títulos compactos encima del sobre */
+  .crown         { width: clamp(86px, 24vw, 140px); margin-top: -6px; }
+  .hero-subtitle { font-size: clamp(17px, 3.2vw, 20px); margin-bottom: 0; }
+  .hero-name     { font-size: clamp(26px, 7vw, 38px); white-space: nowrap; }
+
+  /* Sobre cómodo en móvil */
+  .envelope      { width: min(94vw, 420px); }
+
+  /* La carta mantiene efecto sticky y no tiene scroll interno */
+  .letter        { --w: min(94vw, 720px); border-radius: 12px; }
+  .letter__content { padding: 16px; overflow: visible; }
+
+  /* Elementos absolutos que se salían: céntralos/compáctalos */
+  .parents-flowers,
+  .final-flowers,
+  .attire-flowers {
+    position: relative; top: 0; right: 0; left: 0;
+    margin: 8px auto 0; width: min(88vw, 360px);
+  }
+
+  .reception-arch,
+  .gifts-section,
+  .attire-section,
+  .final-invite {
+    width: 100%;
+    margin-left: auto; margin-right: auto;
+  }
+}
+
+/* ≤ 600px: móvil típico */
+@media (max-width: 600px) {
+  /* Solo sobre visible al principio, sin “ruidos” laterales */
+  .flowers-top-left,
+  .flowers-top-right,
+  .final-butterfly { display: none; }
+
+  .hero-name { font-size: clamp(26px, 8.2vw, 36px); }
+
+  /* Botones a ancho completo */
+  .reception-map,
+  .confirm-btn { width: 100%; text-align: center; }
+
+  /* Asegura suficiente scroll para revelar la carta */
+  .letter-stage { height: 170vh; min-height: 170vh; }
+}
+
+/* ≤ 420px: móvil chico */
+@media (max-width: 420px) {
+  .crown         { width: clamp(82px, 26vw, 120px); }
+  .hero-subtitle { font-size: clamp(16px, 3.6vw, 18px); }
+  .hero-name     { font-size: clamp(24px, 8.6vw, 34px); }
+
+  .envelope      { width: 92vw; }
+
+  /* Compacta tipografías y paddings internos de la carta */
+  .p, .attire-text, .reception-time, .reception-address { font-size: clamp(13px, 3.6vw, 15px); }
+  .letter__content { padding: 14px; }
+
+  .letter-stage { height: 160vh; min-height: 160vh; }
+}
+
+/* Landscape bajo: evita que la carta se asome en la 1ª vista */
+@media (max-height: 560px) {
+  .hero { height: 100vh; }
+  .letter-stage { height: 190vh; min-height: 190vh; }
+}
+/* === AQUÍ VA TODO TU CSS EXISTENTE SIN CAMBIOS === */
+/* (Pega íntegramente tu hoja tal como la compartiste; no la repito aquí para no duplicarte miles de líneas y evitar errores de copia.) */
+
+
+/* ===== Mini mapas ===== */
+.maps-section {
+  width: min(880px, 94%);
+  margin: 28px auto 0;
+  text-align: center;
+}
+
+.maps-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(14px, 2.4vw, 22px);
+  margin-top: 10px;
+}
+
+.map-card {
+  display: grid;
+  grid-template-rows: auto 1fr;
+  gap: 8px;
+  background: #fff;
+  border: 1.5px solid #B58A2B;
+  border-radius: 14px;
+  text-decoration: none;
+  color: inherit;
+  box-shadow: 0 6px 16px rgba(0,0,0,.08);
+  overflow: hidden;
+  transition: transform .18s ease, box-shadow .18s ease, filter .18s ease;
+}
+
+.map-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 22px rgba(0,0,0,.12);
+  filter: brightness(1.02);
+}
+
+.map-thumb {
+  position: relative;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  background: #eef6ff;
+}
+
+.map-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.map-thumb iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+  pointer-events: none; /* todo el card es clickeable */
+}
+
+.map-meta {
+  padding: 10px 12px 14px;
+}
+
+.map-meta h3 {
+  font-family: "Montecarlo", cursive;
+  font-size: clamp(18px, 2.2vw, 24px);
+  color: #B58A2B;
+  margin: 0 0 4px;
+}
+
+.map-meta p {
+  font-family: "Playfair Display", serif;
+  font-size: clamp(13px, 1.5vw, 15px);
+  color: #1E355B;
+  line-height: 1.45;
+  margin: 0 0 8px;
+}
+
+.map-btn {
+  display: inline-block;
+  padding: 6px 12px;
+  border-radius: 999px;
+  border: 1px solid #B58A2B;
+  background: linear-gradient(180deg,#FFF8E5,#F5E3B3);
+  font-weight: 600;
+  font-size: clamp(12px, 1.4vw, 13px);
+  color: #1E355B;
+  box-shadow: 0 3px 8px rgba(0,0,0,.08);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .maps-grid { grid-template-columns: 1fr; }
+}

@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=MonteCarlo&display=swap');
+
 /* ===== Base ===== */
 * { box-sizing: border-box; margin: 0; padding: 0; }
 html, body { height: 100%; }
@@ -9,15 +11,21 @@ body {
   overflow-x: hidden;
 }
 
-.section { text-align: center; margin-top: 16px; }
+.section {
+  text-align: center;
+  margin-top: -10px;
+
+}
 
 h2 {
   color: #1E355B;
   font-size: 1.3rem;
   letter-spacing: 0.05em;
-  margin-bottom: 4px;
+  margin-top: -10px;  /* 🔹 súbelo (ajusta -10, -15, -20px según veas) */
+  margin-bottom: 4px; /* mantiene el espacio inferior corto */
   text-transform: uppercase;
 }
+
 
 .verse {
   font-style: italic;
@@ -29,7 +37,7 @@ h2 {
 
 .small { font-size: 0.9rem; color: #2a4266; }
 
-.grid2 h2 { font-size: 1.2rem; margin-bottom: 4px; color: #B58A2B; }
+.grid2 h2 { font-size: 1.2rem; margin-top: -10px; margin-bottom: 4px; color: #B58A2B; }
 .grid2 p { line-height: 1.4; }
 
 strong { color: #B58A2B; font-weight: 600; }
@@ -45,7 +53,7 @@ strong { color: #B58A2B; font-weight: 600; }
 
 /* 1) SOBRE: ocupa la pantalla y NO se desvanece ni se abre */
 .hero {
-  height: 100vh;                 /* ocupa la primera vista */
+  height: 78vh;                 /* ocupa la primera vista */
   display: grid;
   place-items: center;
   view-timeline-name: --hero;    /* reservado para posibles animaciones */
@@ -54,12 +62,12 @@ strong { color: #B58A2B; font-weight: 600; }
 
 .envelope {
   position: relative;
-  width: min(92vw, 560px);
+  width: min(92vw, 500px);
   aspect-ratio: 3 / 2;
   border-radius: 14px;
   background: linear-gradient(180deg, #e9f4ff 0%, #ffffff 100%);
   border: 2px solid #bcd5fa;
-  box-shadow: 0 25px 60px rgba(0,0,0,.22);
+  box-shadow: 0 30px 60px rgba(0,0,0,.22);
   overflow: hidden;
 }
 
@@ -231,7 +239,8 @@ strong { color: #B58A2B; font-weight: 600; }
   mix-blend-mode: multiply; /* o 'screen' si quieres brillo */
 
 }
-:root { --corner-size: clamp(90px, 11vw, 200px); }
+:root { --corner-size: clamp(300px, 65vw, 500px);
+}
 
 .corner{
   position: fixed;
@@ -244,8 +253,8 @@ strong { color: #B58A2B; font-weight: 600; }
 }
 
 .corner img{
-  width: 100%;
-  height: 100%;
+  width: 120%;
+  height: 50%;
   object-fit: contain;
   display: block;
   /* sutil relieve dorado sin invadir */
@@ -258,12 +267,16 @@ strong { color: #B58A2B; font-weight: 600; }
 .corner-tr{ top: 0; right: 0; transform: rotate(0deg); }
 .corner-tl{ top: 0; left: 0; transform: scaleX(-1); }
 .corner-br{ bottom: 0; right: 0; transform: scaleY(-1); }
-.corner-bl{ bottom: 0; left: 0; transform: scale(-1, -1); }
+.corner-bl {bottom: -320px;          /* antes 0 → baja 20px hacia abajo */
+  left: 0;
+  transform: scale(-1, -1);
+}
+
 
 /* peinado fino para que “toquen” el borde */
 .corner-tl, .corner-tr{ margin-top: -4px; }
 .corner-bl, .corner-br{ margin-bottom: -4px; }
-.corner-tl, .corner-bl{ margin-left: -4px; }
+.corner-tl, .corner-bl{ margin-left: -120px; }
 .corner-tr, .corner-br{ margin-right: -4px; }
 @keyframes typeIn{
   0%   { width:0;   opacity:1; }
@@ -288,3 +301,1175 @@ strong { color: #B58A2B; font-weight: 600; }
 @supports not (animation-timeline: auto) {
   .letter { opacity: 1; transform: translateY(-50%) scale(1); }
 }
+.envelope-wrap{
+  display:inline-block;
+  text-align:center;
+}
+
+.envelope{
+  position:relative;
+  overflow:visible;   /* evita recortes */
+}
+
+/* Flor detrás del sello (PNG con transparencia) */
+.seal-flowers{
+  position:absolute;
+  left:50%; top:50%;
+  transform:translate(-55%,-18%) translateY(-28%);
+  width:clamp(120px,24vw,240px);
+  z-index:3;                 /* debajo del sello */
+  pointer-events:none;
+  background:transparent;    /* fuerza fondo transparente */
+}
+
+/* Sello por encima */
+.seal{
+  position:absolute;
+  left:50%; top:50%;
+  transform:translate(-50%,-50%) translateY(10%);
+  z-index:4;
+}
+
+/* Texto justo debajo del sobre, centrado */
+.envelope-caption {
+  margin-top: 24px; /* antes 300px — ahora queda pegado al sobre */
+  text-align: center;
+  font-family: "Playfair Display", serif;
+  font-style: italic;
+  font-size: 1.1rem;
+  color: #000;
+  display: block;
+  width: 100%;
+}
+
+/* capa de fondo que ya tienes en tu HTML */
+.layer-bg{
+  position: fixed; inset: 0;
+  z-index: -3;
+  background: linear-gradient(180deg, #bfe2ff 0%, #e9f4ff 45%, #ffffff 100%);
+}
+.layer-bg{
+  position: fixed; inset: 0;
+  z-index: -3;
+
+  /* degradado base */
+  background:
+          linear-gradient(180deg, #bfe2ff 0%, #e9f4ff 45%, #ffffff 100%);
+
+  /* “papel” muy sutil con ruido */
+  isolation: isolate;
+}
+.layer-bg::after{
+  content:"";
+  position:absolute; inset:0;
+  pointer-events:none;
+  mix-blend-mode: multiply;
+  opacity:.18;
+
+  /* textura generada con gradientes (no pesa nada) */
+  background:
+          radial-gradient(1000px 400px at 50% -20%, rgba(255,255,255,.5), transparent 60%),
+          radial-gradient(1200px 600px at 50% 120%, rgba(0,0,0,.07), transparent 60%),
+          repeating-linear-gradient(  0deg, rgba(0,0,0,.02) 0 2px, transparent 2px 4px),
+          repeating-linear-gradient( 90deg, rgba(0,0,0,.02) 0 2px, transparent 2px 4px);
+  filter: blur(.2px);
+}
+
+/* --- Centrado total de corona, texto, sobre y mensaje --- */
+.hero {
+  height: 65vh; /* ocupa toda la altura de la ventana */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center; /* centra verticalmente todo el contenido */
+  text-align: center;
+  gap: clamp(10px, 2vh, 24px);
+  padding: 0 16px;
+}
+
+/* El sobre centrado visualmente */
+.envelope-wrap {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column; /* apila el sobre y el texto debajo */
+  position: relative;
+}
+
+/* Texto “Toca el sello” debajo del sobre */
+.hint {
+  margin-top: 16px;
+  font-family: "Playfair Display", serif;
+  font-style: italic;
+  font-size: 1.1rem;
+  color: #2b456b;
+  opacity: 0.85;
+  text-align: center;
+  animation: pulseHint 2s ease-in-out infinite;
+}
+
+/* efecto leve de brillo */
+@keyframes pulseHint {
+  0%, 100% { opacity: 0.85; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.05); }
+}
+
+/* Corona perfectamente centrada arriba */
+.crown {
+  display: block;               /* se comporta como elemento de bloque */
+  margin: 0 auto;               /* centra horizontalmente */
+  width: clamp(90px, 16vw, 250px);
+  height: auto;
+  opacity: 0.98;
+  pointer-events: none;
+  margin-top: -30px;   /* súbelo más cerca de la corona */
+  filter:
+          drop-shadow(0 4px 6px rgba(0, 0, 0, 0.25))
+          brightness(1.05)
+          saturate(1.1);
+  margin-bottom: clamp(6px, 1.2vh, 16px);
+}
+/* “MIS XV AÑOS” centrado y más arriba */
+.hero-subtitle {
+  font-family: "Playfair Display", serif;
+  color: #056CB5;
+  font-size: clamp(20px, 2.4vw, 26px);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  text-align: center;
+  margin-top: -60px;   /* súbelo más cerca de la corona */
+  margin-bottom: 4px;  /* deja espacio con el nombre */
+}
+
+/* Contenedor del nombre centrado */
+.hero {
+  display: flex;
+  flex-direction: column;
+  align-items: center;   /* centra horizontalmente */
+  justify-content: center; /* centra verticalmente si lo necesitas */
+  text-align: center;
+}
+
+/* Nombre con fuente Great Vibes y animación de izquierda a derecha */
+.hero-name {
+  font-family: "Great Vibes", cursive;
+  font-size: clamp(28px, 3vw, 40px);
+  background: linear-gradient(90deg, #B58A2B, #EFD780);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 0 1px 0 rgba(0, 0, 0, 0.06);
+  line-height: 1.1;
+  white-space: nowrap;
+  overflow: hidden;
+  opacity: 0;
+  animation: revealLeftToRight 2.4s ease-out forwards;
+  text-align: center; /* asegura que el texto dentro esté centrado */
+  margin: 0 auto;     /* centra el bloque horizontalmente */
+}
+
+/* Animación: revela de izquierda a derecha */
+@keyframes revealLeftToRight {
+  from {
+    clip-path: inset(0 100% 0 0);
+    opacity: 0;
+  }
+  30% {
+    opacity: 1;
+  }
+  to {
+    clip-path: inset(0 0 0 0);
+    opacity: 1;
+  }
+}
+
+
+/* Espaciado entre el texto y el sobre */
+.envelope-wrap {
+  margin-top: clamp(10px, 2vh, 28px);
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+/* Desvanece decoraciones al scrollear: 0%→25% del documento */
+@supports (animation-timeline: scroll()) {
+  html {
+    scroll-timeline-name: --doc;
+    scroll-timeline-axis: block;
+  }
+
+  .corner {
+    animation: fadeDecor 1 both;
+    animation-timeline: --doc;
+    animation-range: 0% 25%; /* a los 25% de scroll ya están ocultas */
+  }
+
+  @keyframes fadeDecor {
+    from { opacity: 1; transform: scale(1); }
+    to   { opacity: 0; transform: scale(0.96); }
+  }
+}
+/* Desvanece decoraciones al scrollear: 0%→25% del documento */
+@supports (animation-timeline: scroll()) {
+  html {
+    scroll-timeline-name: --doc;
+    scroll-timeline-axis: block;
+  }
+
+  .corner {
+    animation: fadeDecor 1 both;
+    animation-timeline: --doc;
+    animation-range: 0% 25%; /* a los 25% de scroll ya están ocultas */
+  }
+
+  @keyframes fadeDecor {
+    from { opacity: 1; transform: scale(1); }
+    to   { opacity: 0; transform: scale(0.96); }
+  }
+}
+/* Escenario de la carta */
+.letter-stage {
+  min-height: 200vh;                       /* espacio para el efecto */
+  position: relative;
+  padding-inline: min(4vw, 24px);
+  view-timeline-name: --letterView;
+  view-timeline-axis: block;
+}
+
+/* Carta centrada, sticky (efecto apertura) */
+.letter {
+  --w: min(92vw, 820px);
+  --ratio: calc(11 / 8.5);
+
+  width: var(--w);
+  aspect-ratio: 8.5 / 11;
+  max-height: none;                        /* deja crecer el contenido */
+  position: sticky;
+  top: 50%;                                /* centro vertical */
+  transform: translateY(-50%) scale(.96);
+  margin-inline: auto;
+  border-radius: 12px;
+  background: #fff;
+  box-shadow: 0 24px 60px rgba(0,0,0,.25),
+  0 2px 0 rgba(0,0,0,.05) inset;
+  border: 1px solid #e8eef8;
+  overflow: visible;                       /* permite que crezca */
+  opacity: 0;
+  animation: showLetter 1 both;
+  animation-timeline: --letterView;
+  animation-range: entry 0% contain 25%;
+}
+
+/* Contenido interno: que se vea todo */
+.letter__content {
+  height: auto;
+  max-height: none;
+  overflow: visible;                       /* sin scroll interno */
+  padding: clamp(20px, 4vw, 40px);
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+/* Animación de apertura */
+@keyframes showLetter {
+  from {
+    opacity: 0;
+    transform: translateY(-40%) scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(-0%) scale(1);
+  }
+}
+/* --- Flores decorativas en esquinas superiores --- */
+.flowers-top-left,
+.flowers-top-right {
+  position: absolute;
+  top: -38px; /* que sobresalgan un poco por arriba */
+  width: clamp(550px, 35%, 340px);
+  height: auto;
+  pointer-events: none;
+  opacity: 0.95;
+  z-index: 1;
+  filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.15));
+}
+
+/* Izquierda */
+.flowers-top-left {
+  left: -6px;
+  transform: rotate(-2deg);
+}
+
+/* Derecha */
+.flowers-top-right {
+  right: -6px;
+  transform: rotate(2deg);
+}
+
+/* Corona centrada arriba */
+.quinces-crown {
+  display: block;
+  margin: 0 auto;
+  width: clamp(220px, 16vw, 180px);
+  height: auto;
+  filter: drop-shadow(0 4px 6px rgba(0,0,0,.25))
+  brightness(1.05)
+  saturate(1.1);
+  opacity: 0.98;
+}
+/* Fuentes como la referencia */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Cinzel:wght@600;700&display=swap');
+
+/* QUINCEAÑERA: subirla y mantenerla a la derecha */
+.quinces-girl{
+  display:block;
+  margin: -110px 140px 10px auto;   /* ↑ súbela (ajusta -60px a gusto) */
+  width: clamp(330px, 32vw, 280px);
+  height:auto;
+  filter: drop-shadow(0 6px 8px rgba(0,0,0,.25));
+  opacity:.98;
+  position: relative;
+  z-index: 2;                      /* por encima del círculo */
+}
+
+/* CÍRCULO: mover a la derecha y zoom SIN perder el translateX */
+.circle-glow{
+  position: relative;
+  width: min(400px, 45vw);
+  margin: -70px auto 0;            /* súbelo un poco */
+  display:flex; justify-content:center; align-items:center;
+  transform: translateX(-10%);      /* a la derecha */
+  z-index: 1;                       /* debajo de la chica */
+}
+.circle-glow img{
+  width: 90%; height:auto;
+  margin-top: -60px;                /* ajústalo si hace falta */
+  opacity:.95;
+  filter: drop-shadow(0 4px 10px rgba(239,215,128,.35)) brightness(1.05) saturate(1.1);
+  transform-origin:center;
+  animation: circleZoom 8s ease-in-out infinite;  /* animamos la IMG, no el contenedor */
+}
+@keyframes circleZoom{
+  0%,120%{ transform: scale(1);   opacity:.95; }
+  70%    { transform: scale(1.08); opacity:1;   }
+}
+
+/* TEXTO “MIS XV AÑOS” como la imagen */
+.xv-label{
+  position: relative;
+  width: fit-content;
+  margin: -350px auto 0;            /* coloca el bloque sobre el círculo */
+  text-align:center;
+  left: -10px;
+  color:#B58A2B;
+  text-shadow:0 1px 0 rgba(0,0,0,.06);
+  transform: translateX(-10%);
+  z-index: 2;                      /* por encima del círculo */
+}
+.xv-label .mis,
+.xv-label .anos{
+  font-family:"Playfair Display", serif;
+  font-size: clamp(16px, 2.2vw, 24px);
+  letter-spacing:.08em;
+  text-transform:uppercase;
+}
+.xv-label .xv {
+  font-family: "MonteCarlo", cursive;
+  font-weight: 700;
+  font-style: normal;
+  font-size: clamp(58px, 2vw, 100px); /* 🔹 antes 52–96px → ahora más grande */
+  line-height: 0.9;
+  background: linear-gradient(90deg, #B58A2B, #EFD780);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+}
+
+/* Asegura posicionamiento relativo del banner/contenedor */
+.quinces-banner{ position: relative; }
+
+/* Grupo a la IZQUIERDA de la chica */
+.butterflies-left{
+  position: absolute;
+  left: 8%;              /* mueve más/menos a la izquierda */
+  bottom: 12%;           /* sube/baja el grupo */
+  width: 190px; height: 220px;
+  pointer-events: none;
+  z-index: 3;            /* por encima del círculo, debajo/encima de la chica según necesites */
+}
+
+/* Base mariposa */
+.bf{
+  position: absolute;
+  width: 56px; height: auto;
+  opacity: .95;
+  filter: drop-shadow(0 3px 6px rgba(239,215,128,.45));
+  transform-origin: 50% 45%;                 /* centro-ala para aleteo */
+  animation: wing .8s ease-in-out infinite alternate,
+  path 8s ease-in-out infinite;
+}
+
+/* Posiciones y variaciones */
+.bf1{ top: -440%; left: 8%; animation-delay: 0s, 0s; }
+.bf2{ top: -410%; left: 50%; transform: scale(.9) rotate(-12deg); animation-delay: .15s, 1.2s; }
+.bf3{ top: -380%; left: 15%; transform: scale(1.1) rotate(10deg); animation-delay: .3s, 2.4s; }
+
+/* Aleteo (abre/cierra alas) */
+@keyframes wing{
+  from{ transform: translateZ(0) rotate(0deg) scaleX(1) scaleY(1); }
+  to  { transform: translateZ(0) rotate(-4deg) scaleX(.94) scaleY(1.06); }
+}
+
+/* Trayectoria suave hacia arriba-izq (como flotando) */
+@keyframes path{
+  0%   { transform: translate(0,0) rotate(0deg);    opacity:.85; }
+  25%  { transform: translate(-18px,-26px) rotate(-6deg); opacity:1; }
+  50%  { transform: translate(-10px,-58px) rotate(8deg);  opacity:.92; }
+  75%  { transform: translate(-24px,-30px) rotate(-3deg); opacity:1; }
+  100% { transform: translate(0,0) rotate(0deg);   opacity:.85; }
+}
+.ornate-divider{
+  display:block;
+  margin: clamp(12px, 2vh, 22px) auto;
+  width: min(520px, 86%);
+  height:auto;
+  opacity:.98;
+  filter: drop-shadow(0 2px 4px rgba(0,0,0,.15));
+}
+.floral-separator {
+  display: block;
+  width: 300%;                    /* más largo: se extiende más allá del contenedor */
+  max-width: none;                /* evita límite */
+  height: clamp(18px, 5vw, 40px); /* más delgado */
+  margin: -40px auto 20px;        /* súbelo un poco */
+  transform: scaleY(0.6);         /* aplana visualmente */
+  transform-origin: center;       /* mantiene centrado el escalado */
+  filter: drop-shadow(0 2px 4px rgba(0,0,0,.15));
+  opacity: .95;
+}
+
+.quinces-girl {
+  margin-bottom: -250px; /* empuja hacia arriba el separador */
+}
+.ornate-divider {
+  display: block;
+  margin-bottom: 0; /* 🔹 elimina espacio debajo del separador */
+}
+
+.section {
+  margin-top: 0;    /* 🔹 elimina espacio arriba del bloque */
+}
+
+.section h2 {
+  margin-top: -6px;  /* 🔹 súbelo un poco más hacia el separador */
+}
+img.ornate-divider {
+  vertical-align: bottom;
+}
+.parents {
+  position: relative;
+  display: inline-block;
+  text-align: center;
+}
+
+.parents-flowers {
+  position: absolute;
+  top: 1300px;                /* ajústalo si quieres que baje o suba */
+  right: 620px;         /* mueve la flor a la derecha del texto */
+  width: clamp(140px, 18vw, 220px);
+  height: auto;
+  opacity: 0.95;
+  filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.15));
+  pointer-events: none;  /* evita interferir con clics */
+}
+.parents-block {
+  text-align: center;
+  margin-top: -10px;
+  color: #1E355B;
+  font-family: "Playfair Display", serif;
+}
+
+.parents-title {
+  font-family: "Great Vibes", cursive;
+  font-size: clamp(26px, 3vw, 38px);
+  color: #B58A2B;
+  margin-bottom: 8px;
+}
+
+.parents-names {
+  font-family: "Playfair Display", serif;
+  font-size: clamp(18px, 2vw, 22px);
+  line-height: 1.5;
+  color: #2a2a2a;
+  margin: 0;
+}
+
+.parents-names .and {
+  display: block;
+  font-family: "MonteCarlo", cursive;
+  font-size: clamp(24px, 2.5vw, 32px);
+  color: #B58A2B;
+  margin: 2px 0;
+}
+
+.parents-invite {
+  margin-top: 10px;
+  font-style: italic;
+  font-size: clamp(15px, 1.6vw, 18px);
+  color: #1E355B;
+}
+
+.parents-block {
+  text-align: center;
+  position: relative;
+  color: #1E355B;
+  font-family: "Playfair Display", serif;
+}
+
+/* título “Mis Padres” */
+.parents-title {
+  font-family: "Great Vibes", cursive;
+  font-size: clamp(26px, 3vw, 38px);
+  color: #B58A2B;
+  margin-bottom: 8px;
+}
+
+/* nombres */
+.parents-names {
+  font-family: "Playfair Display", serif;
+  font-size: clamp(18px, 2vw, 22px);
+  line-height: 1.5;
+  color: #2a2a2a;
+  margin: 0;
+}
+
+.parents-names .and {
+  display: block;
+  font-family: "MonteCarlo", cursive;
+  font-size: clamp(24px, 2.5vw, 32px);
+  color: #B58A2B;
+  margin: 2px 0;
+}
+
+/* frase */
+.parents-invite {
+  margin-top: 10px;
+  font-style: italic;
+  font-size: clamp(15px, 1.6vw, 18px);
+  color: #1E355B;
+}
+
+/* rectángulo dorado */
+.name-box {
+  display: inline-block;
+  border: 3px solid #D6B85A;
+  border-radius: 8px;
+  padding: 10px 24px;
+  margin-top: 14px;
+  background: linear-gradient(180deg, #fffef8 0%, #fffdfa 100%);
+  box-shadow: 0 0 10px rgba(181, 138, 43, 0.3);
+  position: relative;
+}
+
+/* nombre en el centro */
+.quince-name {
+  font-family: "Great Vibes", cursive;
+  font-size: clamp(26px, 3.2vw, 42px);
+  background: linear-gradient(90deg, #B58A2B, #EFD780);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+}
+/* ======= Bloque de fecha ======= */
+.date-block {
+  position: relative;
+  margin-top: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  gap: 8px;
+}
+
+.date-text {
+  position: relative;
+  display: inline-block;
+  text-align: center;
+}
+
+.date-text .weekday {
+  display: inline-block;
+  font-family: "Playfair Display", serif;
+  font-size: 1rem;
+  color: #1E355B;
+  letter-spacing: 0.05em;
+  margin-right: 10px;
+}
+
+.date-text .month {
+  position: absolute;
+  top: -24px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-family: "Playfair Display", serif;
+  font-size: 0.9rem;
+  color: #1E355B;
+  letter-spacing: 0.06em;
+}
+
+.date-text .day {
+  display: inline-block;
+  font-family: "Cinzel", serif;
+  font-size: 2.8rem;
+  font-weight: 700;
+  color: #B58A2B;
+  margin: 0 16px;
+}
+
+.date-text .year {
+  display: inline-block;
+  font-family: "Playfair Display", serif;
+  font-size: 1rem;
+  color: #1E355B;
+  letter-spacing: 0.05em;
+  margin-left: 10px;
+}
+
+/* Líneas laterales */
+.date-line {
+  width: 70px;
+  height: 2px;
+  background: #1E355B;
+  opacity: 0.8;
+}
+
+.date-line.left { margin-right: 8px; }
+.date-line.right { margin-left: 8px; }
+/* ======= BLOQUE DE PADRINOS ======= */
+.godparents-block {
+  text-align: center;
+  margin-top: 28px;
+  position: relative;
+  color: #1E355B;
+  font-family: "Playfair Display", serif;
+}
+
+/* título “Mis Padrinos” */
+.godparents-title {
+  font-family: "Great Vibes", cursive;
+  font-size: clamp(26px, 3vw, 38px);
+  color: #B58A2B;
+  margin-bottom: 8px;
+}
+
+/* nombres */
+.godparents-names {
+  font-family: "Playfair Display", serif;
+  font-size: clamp(18px, 2vw, 22px);
+  line-height: 1.5;
+  color: #2a2a2a;
+  margin: 0;
+}
+
+.godparents-names .and {
+  display: block;
+  font-family: "MonteCarlo", cursive;
+  font-size: clamp(24px, 2.5vw, 32px);
+  color: #B58A2B;
+  margin: 2px 0;
+}
+/* ===== Recepción (versión pequeña) ===== */
+.reception-arch {
+  position: relative;
+  width: min(460px, 85%);
+  margin: 50px auto 0;
+  text-align: center;
+}
+
+/* ramo floral superior */
+.reception-flowers {
+  position: absolute;
+  top: -60px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: clamp(160px, 32vw, 260px);
+  height: auto;
+  z-index: 3;
+  opacity: 0.96;
+  filter: drop-shadow(0 4px 8px rgba(0,0,0,.15));
+}
+
+/* arco más pequeño */
+.reception-arch-frame {
+  background: #fff;
+  border: 2px solid #B58A2B;
+  border-radius: 24px;
+  border-top-left-radius: 180px;
+  border-top-right-radius: 180px;
+  padding: 90px 22px 26px; /* antes 120px 28px 36px */
+  box-shadow: 0 6px 20px rgba(0,0,0,.1);
+  position: relative;
+  z-index: 1;
+}
+
+/* copas PNG más pequeñas */
+.reception-cups {
+  display: block;
+  margin: 0 auto 10px;
+  width: clamp(70px, 18vw, 100px);
+  height: auto;
+  filter: drop-shadow(0 2px 3px rgba(0,0,0,.15));
+  opacity: .95;
+}
+
+/* textos */
+.reception-title {
+  font-family: "Great Vibes", cursive;
+  font-size: clamp(22px, 2.6vw, 30px);
+  color: #B58A2B;
+  margin: 4px 0 8px;
+}
+
+.reception-time,
+.reception-address {
+  font-family: "Playfair Display", serif;
+  color: #1E355B;
+  font-size: clamp(13px, 1.4vw, 16px);
+  margin: 2px 0;
+}
+
+.reception-time strong {
+  color: #B58A2B;
+}
+
+/* botón */
+.reception-map {
+  display: inline-block;
+  margin-top: 10px;
+  padding: 8px 18px;
+  border-radius: 999px;
+  border: 1.5px solid #B58A2B;
+  background: linear-gradient(180deg,#FFF8E5,#F5E3B3);
+  text-decoration: none;
+  color: #1E355B;
+  font-weight: 600;
+  letter-spacing: .04em;
+  font-size: clamp(13px, 1.3vw, 15px);
+  box-shadow: 0 3px 8px rgba(0,0,0,.1);
+  transition: all 0.25s ease;
+}
+
+.reception-map:hover {
+  filter: brightness(1.05);
+  transform: translateY(-1px);
+}
+/* Tamaño compacto y centrado */
+.reception-arch{
+  position: relative;
+  width: min(460px, 85%);
+  margin: 48px auto 0;
+  text-align: center;
+}
+
+/* Ramo encima del arco, centrado y “pegado” */
+.reception-flowers{
+  position: absolute;
+  top: -54px;               /* sube/ baja el ramo */
+  left: 50%;
+  transform: translateX(-50%);
+  width: clamp(170px, 34vw, 250px);
+  height: auto;
+  z-index: 3;
+  filter: drop-shadow(0 5px 8px rgba(0,0,0,.16));
+  opacity: .96;
+}
+
+/* Arco dorado */
+.reception-arch-frame{
+  background:#fff;
+  border: 2.5px solid #B58A2B;
+  border-radius: 26px;
+  border-top-left-radius: 220px;
+  border-top-right-radius: 220px;
+  padding: 96px 22px 24px;  /* espacio superior para el ramo */
+  box-shadow: 0 6px 20px rgba(0,0,0,.10);
+  position: relative;
+  z-index: 1;
+}
+
+/* Copas centradas con el mismo “peso” visual */
+.reception-cups{
+  display:block;
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+  width: clamp(78px, 19vw, 110px);
+  height:auto;
+  margin: -2px auto 8px;     /* fino ajuste vertical */
+  filter: drop-shadow(0 2px 3px rgba(0,0,0,.15));
+  opacity:.96;
+}
+
+/* Tipografía y espaciados como la referencia */
+.reception-title{
+  font-family:"Great Vibes", cursive;
+  font-size: clamp(24px, 2.7vw, 34px);
+  color:#B58A2B;
+  margin: 2px 0 6px;
+}
+.reception-time,
+.reception-address{
+  font-family:"Playfair Display", serif;
+  color:#1E355B;
+  font-size: clamp(14px, 1.5vw, 16px);
+  margin: 4px 0;
+}
+.reception-time strong{ color:#B58A2B; }
+
+/* Botón igual al ejemplo */
+.reception-map{
+  display:inline-block;
+  margin-top: 12px;
+  padding: 9px 20px;
+  border-radius: 999px;
+  border: 1.5px solid #B58A2B;
+  background: #F7EFE0;
+  color:#1E355B;
+  text-decoration:none;
+  font-weight:600;
+  letter-spacing:.05em;
+  box-shadow: 0 4px 10px rgba(0,0,0,.10);
+  transition: transform .2s ease, filter .2s ease;
+}
+.reception-map:hover{ transform: translateY(-1px); filter: brightness(1.05); }
+/* ===== Conteo regresivo ===== */
+.countdown {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 18px;
+  margin-top: 12px;
+  font-family: "Playfair Display", serif;
+  color: #1E355B;
+}
+
+.countdown div {
+  text-align: center;
+  background: #fff;
+  border: 1.5px solid #B58A2B;
+  border-radius: 12px;
+  padding: 6px 10px;
+  min-width: 64px;
+  box-shadow: 0 4px 10px rgba(0,0,0,.1);
+}
+
+.countdown span {
+  display: block;
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: #B58A2B;
+}
+
+.countdown small {
+  font-size: 0.7rem;
+  letter-spacing: .04em;
+  color: #1E355B;
+}
+/* ===== Ícono dorado de iglesia ===== */
+.church-icon {
+  display: block;
+  margin: 0 auto 10px;  /* centrado y con espacio debajo */
+  width: clamp(50px, 8vw, 80px);
+  height: auto;
+  filter: drop-shadow(0 2px 4px rgba(239,215,128,.4))
+  brightness(1.1)
+  saturate(1.2);
+  opacity: .95;
+}
+.misa-section {
+  display: flex;
+  justify-content: center; /* centra horizontalmente */
+  align-items: center;     /* centra verticalmente si hay altura definida */
+  text-align: center;      /* centra el texto interno */
+  margin-top: 20px;
+  width: 100%;
+}
+
+.misa-section > div {
+  display: inline-block;
+  text-align: center;
+}
+/* ===== Vestimenta ===== */
+.attire-section {
+  text-align: center;
+  margin: 40px auto 0;
+}
+
+.attire-title {
+  font-family: "Great Vibes", cursive;
+  font-size: clamp(28px, 3vw, 36px);
+  color: #B58A2B;
+  margin-bottom: 12px;
+  letter-spacing: 0.03em;
+}
+
+.attire-icons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 36px;
+  margin-bottom: 10px;
+}
+
+.attire-icon {
+  width: clamp(70px, 14vw, 100px);
+  height: auto;
+  filter: drop-shadow(0 3px 5px rgba(0, 0, 0, 0.15))
+  brightness(1.05)
+  saturate(1.1);
+}
+
+.attire-text {
+  font-family: "Playfair Display", serif;
+  font-size: clamp(16px, 1.8vw, 19px);
+  font-style: italic;
+  color: #1E355B;
+}
+.gifts-section {
+  text-align: center;
+  margin: 60px auto;
+  width: min(500px, 90%);
+  color: #2a4266;
+  position: relative;
+}
+
+.section-title {
+  font-family: "MonteCarlo", cursive;
+  font-size: 1.8rem;
+  color: #B58A2B;
+  margin-bottom: 8px;
+}
+
+.gift-icon {
+  width: 80px;
+  height: auto;
+  margin: 8px 0 12px;
+  filter: drop-shadow(0 2px 4px rgba(0,0,0,.15));
+}
+
+.gift-text {
+  font-size: 1rem;
+  color: #1E355B;
+  line-height: 1.6;
+  margin-bottom: 28px;
+}
+
+.divider {
+  width: 60%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, #EFD780 50%, transparent);
+  margin: 20px auto;
+  opacity: .8;
+}
+
+.confirm-btn {
+  background: #EFD780;
+  color: #1E355B;
+  font-weight: 600;
+  border-radius: 50px;
+  padding: 10px 30px;
+  text-decoration: none;
+  box-shadow: 0 3px 6px rgba(0,0,0,.15);
+  display: inline-block;
+  transition: all .3s ease;
+}
+
+.confirm-btn:hover {
+  background: #B58A2B;
+  color: white;
+  transform: translateY(-2px);
+}
+.final-invite {
+  position: relative;
+  text-align: center;
+  margin-top: 80px;
+  padding-bottom: 40px;
+  min-height: 320px;
+  overflow: hidden;
+}
+
+/* Texto centrado */
+.final-text {
+  font-family: "MonteCarlo", cursive;
+  font-size: 2rem;
+  color: #B58A2B;
+  margin-bottom: 70px;
+  text-shadow: 0 1px 2px rgba(0,0,0,0.15);
+  display: inline-block;
+  text-align: center;
+  width: 100%;
+}
+
+/* Imagen más pequeña y alineada a la derecha inferior */
+.final-invite .final-girl {
+  position: absolute !important;
+  right: 10px !important;
+  bottom: -5px !important;
+  left: auto !important;
+  transform: none !important;
+  margin: 10px !important;
+  width: clamp(140px, 18vw, 220px); /* ← más pequeña */
+  height: auto;
+  filter: drop-shadow(0 4px 6px rgba(0,0,0,.15));
+  opacity: 0.95;
+  z-index: 2;
+}
+
+/* Flores al fondo */
+.final-flowers {
+  position: absolute;
+  bottom: 0;
+  left: 5%;
+  width: 50vw;
+  height: auto;
+  opacity: 0.95;
+  z-index: 1;
+}
+.final-invite {
+  position: relative;
+  text-align: center;
+  margin-top: 80px;
+  padding-bottom: 40px;
+  min-height: 320px;
+  overflow: hidden;
+}
+
+/* Quinceañera */
+.final-girl {
+  position: absolute;
+  right: 10%;
+  bottom: -5px;
+  width: clamp(140px, 18vw, 220px);
+  height: auto;
+  filter: drop-shadow(0 4px 6px rgba(0,0,0,.15));
+  opacity: 0.95;
+  z-index: 2;
+}
+
+/* Flores al lado izquierdo de la quinceañera */
+.final-flowers {
+  position: absolute;
+  bottom: -5px;
+  right: calc(10% + 220px); /* justo a la izquierda de la quinceañera */
+  width: clamp(160px, 22vw, 280px);
+  height: auto;
+  opacity: 0.95;
+  z-index: 1;
+}
+
+.final-invite{
+  position: relative;
+  min-height: 420px;      /* dales espacio */
+  overflow: visible;      /* no las recortes */
+}
+
+/* Mariposas SIEMPRE encima */
+.final-butterfly {
+  position: absolute;
+  width: 50px;
+  height: auto;
+  opacity: 0.9;
+  animation: flutter 5s ease-in-out infinite;
+  z-index: 5;            /* > final-girl (2) y > flores (1) */
+  pointer-events: none;  /* evita taparlas */
+}
+
+/* Reubícalas con top en vez de bottom para evitar desbordes */
+.final-butterfly.bf1 {
+  top: 20px;
+  right: 20%;
+  animation-delay: 0s;
+}
+
+.final-butterfly.bf2 {
+  top: 60px;
+  right: 35%;
+  animation-delay: 2s;
+}
+
+@keyframes flutter {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  50% { transform: translateY(-10px) rotate(5deg); }
+}
+
+
+@keyframes flutter {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  50% { transform: translateY(-10px) rotate(5deg); }
+}
+
+.attire-section {
+  text-align: center;
+  margin-top: 60px;
+  position: relative;
+}
+
+.attire-title {
+  font-size: 1.8rem;
+  color: #B58A2B;
+  margin-bottom: 20px;
+  text-shadow: 0 1px 2px rgba(0,0,0,0.15);
+}
+
+.attire-row {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 60px; /* separación entre texto y flores */
+  flex-wrap: wrap; /* para que en móviles se acomode */
+}
+
+.attire-left {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.attire-icons {
+  display: flex;
+  gap: 16px;
+}
+
+.attire-icon {
+  width: clamp(60px, 8vw, 90px);
+  height: auto;
+}
+
+.attire-text {
+  font-size: 1.1rem;
+  color: #1E355B;
+  margin-top: 8px;
+}
+
+.attire-flowers {
+  position: relative;
+  top: -150px;            /* 🔹 sube la imagen */
+  right: -290px;          /* 🔹 muévela más hacia la derecha */
+  width: clamp(100px, 16vw, 180px); /* 🔹 más pequeña */
+  height: auto;
+  opacity: 0.95;
+  filter: drop-shadow(0 3px 6px rgba(0, 0, 0, .25));
+  transition: all 0.3s ease;
+}
+@media (max-width: 768px) {
+  .attire-flowers {
+    top: 0;
+    right: 0;
+    width: clamp(100px, 30vw, 160px);
+  }
+}
+
+

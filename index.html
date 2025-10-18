@@ -12,42 +12,89 @@
 <div class="layer layer-clouds"></div>
 <div class="layer layer-light"></div>
 
+
 <!-- Esquinas decorativas -->
 <div class="corner corner-tr" aria-hidden="true"><img src="esquina-dorada.png" alt=""/></div>
-<div class="corner corner-tl" aria-hidden="true"><img src="esquina-dorada.png" alt=""/></div>
-<div class="corner corner-br" aria-hidden="true"><img src="esquina-dorada.png" alt=""/></div>
 <div class="corner corner-bl" aria-hidden="true"><img src="esquina-dorada.png" alt=""/></div>
 
 <main class="stage">
+
+  <!-- Corona dorada -->
+  <img src="corona-dorada.png" alt="Corona Dorada" class="crown" />
+
+  <h2 class="hero-subtitle">MIS XV AÑOS</h2>
+  <p class="hero-name">Arumy Guadalupe García Lemus</p>
   <!-- SOBRE -->
   <section class="hero">
-    <div class="envelope" aria-label="Sobre cerrado">
-      <div class="liner" aria-hidden="true"></div>
+    <figure class="envelope-wrap">
+      <div class="envelope" aria-label="Sobre cerrado">
+        <div class="liner" aria-hidden="true"></div>
 
-      <!-- bolsillos/flaps -->
-      <div class="flap-left" aria-hidden="true"></div>
-      <div class="flap-right" aria-hidden="true"></div>
-      <div class="flap-bottom" aria-hidden="true"></div>
-      <div class="flap-top" aria-hidden="true"></div>
+        <!-- Flaps -->
+        <div class="flap-left" aria-hidden="true"></div>
+        <div class="flap-right" aria-hidden="true"></div>
+        <div class="flap-bottom" aria-hidden="true"></div>
+        <div class="flap-top" aria-hidden="true"></div>
 
-      <!-- flores doradas en la solapa -->
-      <img src="flores-doradas.png" alt="Flores doradas" class="flap-flowers" aria-hidden="true" />
+        <!-- Ramo de flores (sin fondo, PNG transparente) -->
+        <img src="flores-sello.png" alt="Flores blancas" class="seal-flowers" aria-hidden="true" />
 
-      <!-- sello -->
-      <div class="seal" aria-hidden="true">
-        <img src="seal.png" alt="Sello dorado" />
+        <!-- Sello dorado -->
+        <div class="seal" aria-hidden="true">
+          <img src="seal.png" alt="Sello dorado" />
+        </div>
       </div>
 
-      <div class="hint">Toca el sello</div>
-    </div>
+      <!-- Texto debajo -->
+      <figcaption class="envelope-caption">Tocar el Sello</figcaption>
+    </figure>
   </section>
+
 
   <!-- CARTA -->
   <section class="letter-stage">
     <div class="letter">
+      <!-- Flores superiores -->
+      <img class="flowers-top-left" src="flowers-left.png" alt="Flores azul cielo con hojas doradas izquierda">
+      <img class="flowers-top-right" src="flowers-right.png" alt="Flores azul cielo con hojas doradas derecha">
+
+      <!-- Corona -->
+      <img class="quinces-crown" src="corona-dorada.png" alt="Corona dorada">
+
+      <!-- Círculo brillante -->
+      <div class="circle-glow">
+        <img src="gold-half-circle.png" alt="Círculo dorado brillante">
+      </div>
+
+      <!-- Texto principal MIS XV AÑOS -->
+      <div class="xv-label">
+        <div class="mis">MIS</div>
+        <div class="xv">XV</div>
+        <div class="anos">AÑOS</div>
+      </div>
+
+      <!-- Centro: quinceañera -->
+      <div class="quinces-center">
+        <img class="quinces-girl" src="quinces-girl.png" alt="Quinceañera azul cielo">
+
+        <!-- Mariposas -->
+        <div class="butterflies-left">
+          <img src="butterfly.png" alt="Mariposa dorada" class="bf bf1">
+          <img src="butterfly.png" alt="Mariposa dorada" class="bf bf2">
+          <img src="butterfly.png" alt="Mariposa dorada" class="bf bf3">
+        </div>
+      </div>
+
+      <!-- Separador ornamental -->
+      <img class="ornate-divider" src="decor-divider.png" alt="Separador dorado">
+
+      <!-- Audio -->
+      <audio id="bgMusic" preload="auto">
+        <source src="musica-instrumental.mp3" type="audio/mpeg">
+      </audio>
+
+      <!-- Contenido principal -->
       <div class="letter__content">
-        <div class="h1">MIS XV AÑOS</div>
-        <div class="name">Arumy Guadalupe García Lemus</div>
         <div class="rule"></div>
 
         <p class="p verse">
@@ -61,44 +108,147 @@
           una noche mágica llena de música, baile y diversión.
         </p>
 
-        <div class="section">
-          <h2>Mis Papás</h2>
-          <p class="p">Sandra Luz Lemus Almora y Rafael Uscanga Teoba</p>
+        <!-- Separador ornamental -->
+        <img class="ornate-divider" src="decor-divider.png" alt="Separador dorado">
+
+        <!-- Padres -->
+        <img class="parents-flowers" src="flores-azul-dorado.png" alt="Flores azul cielo y doradas">
+        <div class="parents-block">
+          <h3 class="parents-title">Mis Padres</h3>
+          <p class="parents-names">
+            Sandra Luz Lemus Almora<br>
+            <span class="and">y</span><br>
+            Rafael Uscanga Teoba
+          </p>
+          <p class="parents-invite">
+            Tienen el honor de invitarlos a festejar<br>
+            los XV años de su hija.
+          </p>
+
+          <div class="name-box">
+            <span class="quince-name">Arumy Guadalupe García Lemus</span>
+          </div>
+
+          <!-- Fecha -->
+          <div class="date-block">
+            <div class="date-line left"></div>
+            <div class="date-text">
+              <span class="weekday">SÁBADO</span>
+              <span class="month">DICIEMBRE</span>
+              <span class="day">13</span>
+              <span class="year">2025</span>
+            </div>
+            <div class="date-line right"></div>
+          </div>
         </div>
 
-        <div class="section">
-          <h2>Mis Padrinos</h2>
-          <p class="p">Concepción Gómez Sánchez y Julián Enríquez Arzate</p>
+        <!-- Conteo regresivo -->
+        <div id="countdown" class="countdown">
+          <div><span id="days">00</span><small>Días</small></div>
+          <div><span id="hours">00</span><small>Horas</small></div>
+          <div><span id="minutes">00</span><small>Minutos</small></div>
+          <div><span id="seconds">00</span><small>Segundos</small></div>
         </div>
 
-        <div class="rule"></div>
+        <!-- Padrinos -->
+        <section class="section">
+          <img class="ornate-divider" src="decor-divider.png" alt="Separador dorado">
 
-        <div class="grid2">
-          <div>
-            <h2>Misa</h2>
-            <p class="p">6:00 PM</p>
-            <p class="p"><strong>Iglesia:</strong> San Martín de Porres</p>
-            <p class="p small">
+          <div class="godparents-block">
+            <h3 class="godparents-title">Mis Padrinos</h3>
+            <p class="godparents-names">
+              Concepción Gómez Sánchez<br>
+              <span class="and">y</span><br>
+              Julián Enríquez Arzate
+            </p>
+          </div>
+
+          <div class="rule"></div>
+          <img class="ornate-divider" src="decor-divider.png" alt="Separador dorado">
+
+          <!-- Misa -->
+          <div class="grid2 misa-section">
+            <div>
+              <img src="church-icon.png" alt="Iglesia" class="church-icon">
+              <h2>Misa</h2>
+              <p class="p">6:00 PM</p>
+              <p class="p"><strong>Iglesia:</strong> San Martín de Porres</p>
+              <p class="p small">
+                Calle Violetas esquina Bulevar Rosinania,<br>
+                Infonavit Lomas del Vergel
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <img class="ornate-divider" src="decor-divider.png" alt="Separador dorado">
+
+        <!-- Recepción -->
+        <section class="reception-arch">
+          <img class="reception-flowers" src="ramo-azul-dorado-arco.png" alt="Ramo floral azul y dorado">
+
+          <div class="reception-arch-frame">
+            <img class="reception-cups-png" src="copas-doradas.png" alt="Copas doradas">
+
+            <h3 class="reception-title">Recepción</h3>
+            <p class="reception-time">Horario: <strong>7:00 pm</strong></p>
+            <p class="reception-address">
               Calle Violetas esquina Bulevar Rosinania,<br>
               Infonavit Lomas del Vergel
             </p>
-          </div>
 
-          <div>
-            <h2>Evento</h2>
-            <p class="p"><strong>Dirección:</strong>
-              Calle Flor de Cerezo entre Saúco y Camelias,<br>
-              Col. El Vergel
-            </p>
-            <p class="p">Citados a las <strong>7:00 PM</strong></p>
+            <a class="reception-map" target="_blank" rel="noopener"
+               href="https://www.google.com/maps/place/Bodega+Aurrera+Express,+Dos+Caminos/...">
+              CÓMO LLEGAR
+            </a>
           </div>
-        </div>
+        </section>
+
+        <!-- Vestimenta -->
+        <section class="attire-section">
+          <h2 class="attire-title">Vestimenta</h2>
+          <div class="attire-icons">
+            <img src="attire-shirt.png" alt="Camisa formal" class="attire-icon">
+            <img src="attire-dress.png" alt="Vestido formal" class="attire-icon">
+          </div>
+          <p class="attire-text">Formal</p>
+          <img src="flores-azul-dorado-vertical.png" alt="Flores azul cielo y hojas doradas" class="attire-flowers">
+        </section>
+
+        <!-- Mesa de Regalos -->
+        <section class="gifts-section">
+          <h2 class="section-title">Mesa de Regalos</h2>
+          <img src="envelope-icon.png" alt="Sobres dorados" class="gift-icon">
+          <p class="gift-text">
+            Tu presencia es el mejor regalo.<br>
+            Si algo me deseas obsequiar,<br>
+            un regalo en sobre lo sabré apreciar.
+          </p>
+
+          <div class="divider"></div>
+
+          <h2 class="section-title">Confirmar tu asistencia</h2>
+          <p class="gift-text">
+            Te agradecemos que confirmes tu asistencia<br>
+            y el número de invitados al siguiente WhatsApp.
+          </p>
+
+          <a href="https://wa.me/2294171290" class="confirm-btn" target="_blank">CONFIRMAR</a>
+        </section>
+
+        <!-- Sección final -->
+        <section class="final-invite">
+          <h2 class="final-text">¡Te esperamos!</h2>
+          <img src="quinces-girl.png" alt="Quinceañera azul cielo" class="final-girl">
+          <img src="esquina-inferior.png" alt="Flores azul cielo con hojas doradas" class="final-flowers">
+          <img src="butterfly.png" alt="Mariposa dorada" class="final-butterfly bf1">
+          <img src="butterfly.png" alt="Mariposa dorada" class="final-butterfly bf2">
+        </section>
       </div>
     </div>
   </section>
-</main>
 
-<!-- JS -->
+  <!-- JS -->
 <script>
   const seal = document.querySelector('.seal');
   const nameEl = document.querySelector('.name');
@@ -117,6 +267,110 @@
     }
     letterStage?.scrollIntoView({ behavior: 'smooth' });
   });
+
 </script>
+<script>
+  (function () {
+    const max = window.innerHeight * 0.35; // tramo de desvanecido (~35% de 1 viewport)
+    const onScroll = () => {
+      const t = Math.min(window.scrollY / max, 1);
+      document.documentElement.style.setProperty('--decor-opacity', String(1 - t));
+    };
+    onScroll();
+    window.addEventListener('scroll', onScroll, { passive: true });
+    window.addEventListener('resize', () => { setTimeout(onScroll, 50); }, { passive: true });
+  })();
+</script>
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const seal = document.querySelector(".seal");
+    const audio = document.getElementById("bgMusic");
+    const hero = document.querySelector(".hero");
+    const letter = document.querySelector(".letter");
+
+    if (!seal || !audio || !hero || !letter) return;
+
+    // 🎵 Fade-in suave
+    const fadeIn = () => {
+      audio.volume = 0;
+      audio.play().catch(() => {
+        console.warn("Reproducción bloqueada hasta interacción del usuario.");
+      });
+      const fade = setInterval(() => {
+        if (audio.volume < 0.6) {
+          audio.volume = Math.min(audio.volume + 0.05, 0.6);
+        } else {
+          clearInterval(fade);
+        }
+      }, 120);
+    };
+
+    // 🔇 Fade-out suave
+    const fadeOut = () => {
+      const fade = setInterval(() => {
+        if (audio.volume > 0.05) {
+          audio.volume -= 0.05;
+        } else {
+          clearInterval(fade);
+          audio.pause();
+          audio.currentTime = 0;
+          audio.volume = 0.6;
+        }
+      }, 100);
+    };
+
+    // 🔊 Comienza música al hacer clic en el sello
+    seal.addEventListener("click", () => fadeIn());
+
+    // 👁️ Observadores para hero y letter
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        const el = entry.target;
+
+        if (el.classList.contains("hero") && entry.isIntersecting && !audio.paused) {
+          // Si el sobre vuelve a ser visible → parar música
+          fadeOut();
+        }
+
+        if (el.classList.contains("letter") && entry.isIntersecting && audio.paused) {
+          // Si vuelve a entrar a la carta → reanudar música
+          fadeIn();
+        }
+      });
+    }, { threshold: 0.3 }); // visible ≥30%
+
+    observer.observe(hero);
+    observer.observe(letter);
+  });
+</script>
+<script>
+  const targetDate = new Date("December 13, 2025 16:30:00").getTime();
+
+  function updateCountdown() {
+    const now = new Date().getTime();
+    const diff = targetDate - now;
+
+    if (diff <= 0) {
+      document.getElementById("countdown").innerHTML = "<p>¡Hoy es el gran día! 🎉</p>";
+      clearInterval(timer);
+      return;
+    }
+
+    const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+    const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+
+    document.getElementById("days").textContent = days.toString().padStart(2, '0');
+    document.getElementById("hours").textContent = hours.toString().padStart(2, '0');
+    document.getElementById("minutes").textContent = minutes.toString().padStart(2, '0');
+    document.getElementById("seconds").textContent = seconds.toString().padStart(2, '0');
+  }
+
+  const timer = setInterval(updateCountdown, 1000);
+  updateCountdown();
+</script>
+
+
 </body>
 </html>

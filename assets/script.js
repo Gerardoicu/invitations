@@ -11,20 +11,18 @@ addEventListener("load", toTop);
 addEventListener("pageshow", toTop);
 
 document.addEventListener("DOMContentLoaded", () => {
-    // ----- refs -----
     const seal = $(".seal");
-    const nameEl = $(".name"); // si usas .hero-name cámbialo aquí
+    const nameEl = $(".name"); // o .hero-name
     const letterStage = $(".letter-stage");
     const hero = $(".hero");
     const letter = $(".letter");
     /** @type {HTMLAudioElement|null} */
     const audio = $("#bgMusic");
-
     if (!seal || !letterStage || !hero || !letter || !audio) return;
 
-    // ----- fade helper (no pausa en 0) -----
+    // ---- fade helper ----
     let fadeId = 0;
-    const fadeTo = (target, step = 0.05, everyMs = 90) => {
+    const fadeTo = (target, step = 0.1, everyMs = 30) => {
         clearInterval(fadeId);
         try { audio.play(); } catch {}
         fadeId = setInterval(() => {
@@ -36,14 +34,26 @@ document.addEventListener("DOMContentLoaded", () => {
     };
 
     let audioArmed = false;
+    let isAnimating = false; // <- evita silenciar durante el scroll programado
 
-    // ----- click sello: habilita audio y hace scroll suave -----
-    seal.addEventListener("click", () => {
+    // ----- click sello -----
+    seal.addEventListener("click", async () => {
         if (nameEl) {
             nameEl.classList.remove("is-typing");
-            void nameEl.offsetWidth; // reflow
+            void nameEl.offsetWidth;
             nameEl.classList.add("is-typing");
         }
+
+        // Reproduce YA y audible
+        audioArmed = true;
+        clearInterval(fadeId);
+        audio.volume = 1;
+        // Opcional: fuerza decodificación y arranque en 0s
+        try { audio.currentTime = 0; } catch {}
+        try { await audio.play(); } catch {}
+
+        // Marca animación para no silenciar por "top"
+        isAnimating = true;
 
         // scroll suave ~2.5s
         const targetY = letterStage.offsetTop;
@@ -56,15 +66,15 @@ document.addEventListener("DOMContentLoaded", () => {
             const p = Math.min((t - t0) / duration, 1);
             const ease = p < 0.5 ? 2 * p * p : 1 - Math.pow(-2 * p + 2, 2) / 2;
             window.scrollTo(0, startY + diff * ease);
-            if (p < 1) requestAnimationFrame(animateScroll);
+            if (p < 1) {
+                requestAnimationFrame(animateScroll);
+            } else {
+                // terminó la animación
+                isAnimating = false;
+                onScroll(); // ajusta estado final
+            }
         };
         requestAnimationFrame(animateScroll);
-
-        audioArmed = true;
-        // regla nueva: siempre suena salvo en top
-        const targetVol = scrollY === 0 ? 0 : 1;
-        audio.volume = targetVol; // set inmediato
-        try { audio.play(); } catch {}
     });
 
     // ----- decor y música en scroll -----
@@ -76,16 +86,16 @@ document.addEventListener("DOMContentLoaded", () => {
         if (ticking) return;
         ticking = true;
         requestAnimationFrame(() => {
-            // opacidad decoración
             updateDecor();
-
-            // clase para estilos dependientes de scroll
             document.body.classList.toggle("scrolled", window.scrollY > 0);
 
-            // regla de volumen: armado => 0 en top, 1 fuera de top
             if (audioArmed) {
-                const want = scrollY === 0 ? 0 : 1;
+                const atTop = window.scrollY === 0;
+                // mientras animamos, mantener audible
+                const want = (atTop && !isAnimating) ? 0 : 1;
+                // cambios rápidos y sin “lag”
                 if (Math.abs(audio.volume - want) > 0.01) {
+                    // primera vez a 1 ya se hizo inmediato; aquí usa fade para transiciones
                     fadeTo(want);
                 }
             }
@@ -93,7 +103,7 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     };
 
-    // init estado inicial
+    // init
     updateDecor();
     document.body.classList.toggle("scrolled", window.scrollY > 0);
 

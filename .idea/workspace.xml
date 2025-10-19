@@ -6,14 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="fafb37c0-a330-449a-ab53-97b7606bb64c" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/images/church-icon.png" beforeDir="false" afterPath="$PROJECT_DIR$/assets/images/church-icon.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/images/esquina-inferior.png" beforeDir="false" afterPath="$PROJECT_DIR$/assets/images/esquina-inferior.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/images/flores-azul-dorado-vertical.png" beforeDir="false" afterPath="$PROJECT_DIR$/assets/images/flores-azul-dorado-vertical.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/images/flowers-left.png" beforeDir="false" afterPath="$PROJECT_DIR$/assets/images/flowers-left.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/images/flowers-right.png" beforeDir="false" afterPath="$PROJECT_DIR$/assets/images/flowers-right.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/script.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/script.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/assets/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/assets/styles.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -74,6 +67,7 @@
       <updated>1760494946975</updated>
       <workItem from="1760494948219" duration="6834000" />
       <workItem from="1760758030582" duration="12688000" />
+      <workItem from="1760893130881" duration="1202000" />
     </task>
     <servers />
   </component>

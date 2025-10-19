@@ -54,7 +54,7 @@ strong { color: #B58A2B; font-weight: 600; }
 
 /* 1) SOBRE: ocupa la pantalla y NO se desvanece ni se abre */
 .hero {
-  height: 78vh;                 /* ocupa la primera vista */
+  height: 28vh;                 /* ocupa la primera vista */
   display: grid;
   place-items: center;
   view-timeline-name: --hero;    /* reservado para posibles animaciones */
@@ -374,7 +374,7 @@ strong { color: #B58A2B; font-weight: 600; }
 
 /* --- Centrado total de corona, texto, sobre y mensaje --- */
 .hero {
-  height: 65vh; /* ocupa toda la altura de la ventana */
+  height: 38vh; /* ocupa toda la altura de la ventana */
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -483,7 +483,7 @@ strong { color: #B58A2B; font-weight: 600; }
 
 /* Espaciado entre el texto y el sobre */
 .envelope-wrap {
-  margin-top: clamp(10px, 2vh, 28px);
+  margin-top: 17%;;
   display: flex;
   justify-content: center;
   width: 100%;
@@ -584,8 +584,7 @@ strong { color: #B58A2B; font-weight: 600; }
 .flowers-top-left,
 .flowers-top-right {
   position: absolute;
-  top: -38px; /* que sobresalgan un poco por arriba */
-  width: clamp(550px, 35%, 340px);
+  width: 25%;
   height: auto;
   pointer-events: none;
   opacity: 0.95;
@@ -640,6 +639,13 @@ strong { color: #B58A2B; font-weight: 600; }
   transform: translateX(-10%);      /* a la derecha */
   z-index: 1;                       /* debajo de la chica */
 }
+.butterflies-left{
+  position: relative;
+  left: 8%;              /* mueve más/menos a la izquierda */
+
+  pointer-events: none;
+  z-index: 3;            /* por encima del círculo, debajo/encima de la chica según necesites */
+}
 .circle-glow img{
   width: 90%; height:auto;
   margin-top: -60px;                /* ajústalo si hace falta */
@@ -689,14 +695,7 @@ strong { color: #B58A2B; font-weight: 600; }
 .quinces-banner{ position: relative; }
 
 /* Grupo a la IZQUIERDA de la chica */
-.butterflies-left{
-  position: absolute;
-  left: 8%;              /* mueve más/menos a la izquierda */
-  bottom: 67%;           /* sube/baja el grupo */
-  width: 190px; height: 220px;
-  pointer-events: none;
-  z-index: 3;            /* por encima del círculo, debajo/encima de la chica según necesites */
-}
+
 
 /* Base mariposa */
 .bf{
@@ -784,7 +783,7 @@ img.ornate-divider {
 }
 .parents-block {
   text-align: center;
-  margin-top: -10px;
+  margin-top: -50px;
   color: #1E355B;
   font-family: "Playfair Display", serif;
 }
@@ -801,7 +800,7 @@ img.ornate-divider {
   flex-direction: column;
   align-items: center;
   text-align: center;
-  margin: 0;
+  margin: 10%;
 }
 
 .parents-names span {
@@ -815,8 +814,8 @@ img.ornate-divider {
   font-family: "MonteCarlo", cursive;
   font-size: 60px;
   color: #B58A2B;
-  margin-top: -3%;
-  margin-bottom: 1%;
+  margin-top: -10%;
+  margin-bottom: 4%;
 }
 .parents-invite {
   margin-top: 10px;
@@ -839,7 +838,6 @@ img.ornate-divider {
   font-size: clamp(18px, 2vw, 22px);
   line-height: 1.5;
   color: #2a2a2a;
-  margin: 0;
 }
 
 
@@ -1319,30 +1317,7 @@ img.ornate-divider {
 }
 
 /* Imagen más pequeña y alineada a la derecha inferior */
-.final-invite .final-girl {
-  position: absolute !important;
-  right: 10px !important;
-  bottom: -5px !important;
-  left: auto !important;
-  transform: none !important;
-  margin: 10px !important;
-  width: clamp(140px, 18vw, 220px); /* ← más pequeña */
-  height: auto;
-  filter: drop-shadow(0 4px 6px rgba(0,0,0,.15));
-  opacity: 0.95;
-  z-index: 2;
-}
 
-/* Flores al fondo */
-.final-flowers {
-  position: absolute;
-  bottom: 0;
-  left: 5%;
-  width: 50vw;
-  height: auto;
-  opacity: 0.95;
-  z-index: 1;
-}
 .final-invite {
   position: relative;
   text-align: center;
@@ -1352,30 +1327,15 @@ img.ornate-divider {
   overflow: hidden;
 }
 
-/* Quinceañera */
-.final-girl {
-  position: relative;
-  right: 10%;
-  bottom: -5px;
-  width: clamp(300px, 40vw, 500px); /* 🔹 más grande en todos los tamaños */
-  height: auto;
-  filter: drop-shadow(0 4px 6px rgba(0,0,0,.15));
-  opacity: 0.95;
-  z-index: 2;
-}
-
 
 /* Flores al lado izquierdo de la quinceañera */
 .final-flowers {
-  position: absolute;
-  bottom: -5px;
-  right: calc(10% + 220px); /* justo a la izquierda de la quinceañera */
-  width: clamp(160px, 22vw, 280px);
-  height: auto;
-  opacity: 0.95;
-  z-index: 1;
+width: 25%;
 }
 
+.final-girl {
+
+}
 .final-invite{
   position: relative;
   min-height: 420px;      /* dales espacio */
@@ -1463,8 +1423,8 @@ img.ornate-divider {
 
 .attire-flowers {
   position: absolute;
-  top: -13px;            /* 🔹 sube la imagen */
-  right: -45px;          /* 🔹 muévela más hacia la derecha */
+  top: -40px;
+  right: -15px;
   width: clamp(100px, 16vw, 180px); /* 🔹 más pequeña */
   height: auto;
   opacity: 0.95;
@@ -1498,8 +1458,8 @@ img.ornate-divider {
 
   .flowers-top-left,
   .flowers-top-right {
-    width: clamp(200px, 32vw, 420px);
-    top: -38px; }
+   margin-left: -2%;
+  }
 }
 
 /* Móviles ≤ 768px */
@@ -1518,8 +1478,8 @@ img.ornate-divider {
 
   .quinces-girl {
     width: clamp(220px, 58vw, 300px);
-    margin-left: 35%;
-    margin-top: -10%;
+    margin-left: 20%;
+    margin-top: 0;
     /* margin: -30px auto 0 auto;                       /* centrada sin romper composición */
   }
 
@@ -1528,7 +1488,7 @@ img.ornate-divider {
     width: clamp(110px, 26vw, 180px);
   }
 
-  .final-flowers { width: clamp(300px, 48vw, 300px); }
+
 }
 .envelope { perspective: 900px; transform-style: preserve-3d; position: relative; z-index: 1; }
 
@@ -1610,7 +1570,7 @@ body.scrolled .flap-left::after{
   .hero-name {
     position: relative;
     z-index: 5;                /* por encima del sobre */
-    pointer-events: none;      /* no estorban clic al sello */
+       /* no estorban clic al sello */
   }
 
   /* ajustes finos de spacing encima del sobre */
@@ -1633,7 +1593,7 @@ body.scrolled .flap-left::after{
   .hero-name {
     position: relative;
     z-index: 5;
-    pointer-events: none;            /* no bloquean el sello */
+            /* no bloquean el sello */
     margin-left: auto;
     margin-right: auto;
     text-align: center;
@@ -1652,7 +1612,6 @@ body.scrolled .flap-left::after{
   .letter-stage  { height: 180vh; min-height: 180vh; padding-inline: min(3vw, 16px); }
 
   /* 5) Evitar desbordes por decoraciones en pantallas angostas */
-  .corner { display: none; }
 
   /* 6) Nada sobresalga del ancho en tablet */
   img, svg, video, canvas { max-width: 100%; height: auto; }
@@ -1662,7 +1621,7 @@ body.scrolled .flap-left::after{
 /* ≤ 768px: móvil grande */
 @media (max-width: 768px) {
   /* Hero sigue ocupando toda la primera pantalla */
-  .hero { height: 100vh; }
+  .hero { height: 60vh; }
 
   /* Corona + títulos compactos encima del sobre */
   .crown         { width: clamp(86px, 24vw, 140px); margin-top: -6px; }
@@ -1677,13 +1636,11 @@ body.scrolled .flap-left::after{
   .letter__content { padding: 16px; overflow: visible; }
 
   /* Elementos absolutos que se salían: céntralos/compáctalos */
-  .parents-flowers,
-  .final-flowers,
-  .attire-flowers {
-    position: relative; top: 0; right: 0; left: 0;
-    margin: 8px auto 0; width: min(88vw, 360px);
+  .parents-flowers {
+    position: relative;
+    margin-top: -15%;
+    margin-left: -3%;
   }
-
   .reception-arch,
   .gifts-section,
   .attire-section,
@@ -1696,9 +1653,6 @@ body.scrolled .flap-left::after{
 /* ≤ 600px: móvil típico */
 @media (max-width: 600px) {
   /* Solo sobre visible al principio, sin “ruidos” laterales */
-  .flowers-top-left,
-  .flowers-top-right,
-  .final-butterfly { display: none; }
 
   .hero-name { font-size: clamp(26px, 8.2vw, 36px); }
 
@@ -1829,7 +1783,7 @@ body.scrolled .flap-left::after{
 /* Grupo adicional de mariposas en otra parte de la carta */
 .butterflies-bottom {
   position: absolute;
-  bottom: 59%;     /* distancia desde la parte inferior */
+  bottom: 60%;     /* distancia desde la parte inferior */
   right: 78%;      /* puedes moverlo más a la derecha o izquierda */
   width: 180px;
   height: 200px;

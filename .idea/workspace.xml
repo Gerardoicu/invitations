@@ -5,36 +5,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="fafb37c0-a330-449a-ab53-97b7606bb64c" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/assets/script.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/attire-dress.png" beforeDir="false" afterPath="$PROJECT_DIR$/assets/images/attire-dress.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/attire-shirt.png" beforeDir="false" afterPath="$PROJECT_DIR$/assets/images/attire-shirt.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/butterfly.png" beforeDir="false" afterPath="$PROJECT_DIR$/assets/images/butterfly.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/church-icon.png" beforeDir="false" afterPath="$PROJECT_DIR$/assets/images/church-icon.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/copas-doradas.png" beforeDir="false" afterPath="$PROJECT_DIR$/assets/images/copas-doradas.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/corona-dorada.png" beforeDir="false" afterPath="$PROJECT_DIR$/assets/images/corona-dorada.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/decor-divider.png" beforeDir="false" afterPath="$PROJECT_DIR$/assets/images/decor-divider32.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/decor-divider1.png" beforeDir="false" afterPath="$PROJECT_DIR$/assets/images/decor-divider1.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/esquina-dorad.png" beforeDir="false" afterPath="$PROJECT_DIR$/assets/images/esquina-dorad.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/esquina-dorada.png" beforeDir="false" afterPath="$PROJECT_DIR$/assets/images/esquina-dorada.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/esquina-inferior.png" beforeDir="false" afterPath="$PROJECT_DIR$/assets/images/esquina-inferior.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/flores-azul-dorado-vertical.png" beforeDir="false" afterPath="$PROJECT_DIR$/assets/images/flores-azul-dorado-vertical.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/flores-azul-dorado.png" beforeDir="false" afterPath="$PROJECT_DIR$/assets/images/flores-azul-dorado.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/flores-doradas.png" beforeDir="false" afterPath="$PROJECT_DIR$/assets/images/flores-doradas.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/flores-sello.png" beforeDir="false" afterPath="$PROJECT_DIR$/assets/images/flores-sello.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/flores-sello1.png" beforeDir="false" afterPath="$PROJECT_DIR$/assets/images/flores-sello1.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/flowers-left.png" beforeDir="false" afterPath="$PROJECT_DIR$/assets/images/flowers-left.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/flowers-right.png" beforeDir="false" afterPath="$PROJECT_DIR$/assets/images/flowers-right.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/flowers-top.png" beforeDir="false" afterPath="$PROJECT_DIR$/assets/images/flowers-top.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gold-half-circle.png" beforeDir="false" afterPath="$PROJECT_DIR$/assets/images/gold-half-circle.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/images/church-icon.png" beforeDir="false" afterPath="$PROJECT_DIR$/assets/images/church-icon.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/images/esquina-inferior.png" beforeDir="false" afterPath="$PROJECT_DIR$/assets/images/esquina-inferior.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/images/flores-azul-dorado-vertical.png" beforeDir="false" afterPath="$PROJECT_DIR$/assets/images/flores-azul-dorado-vertical.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/images/flowers-left.png" beforeDir="false" afterPath="$PROJECT_DIR$/assets/images/flowers-left.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/images/flowers-right.png" beforeDir="false" afterPath="$PROJECT_DIR$/assets/images/flowers-right.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/script.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/script.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/assets/styles.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/musica-instrumental.mp3" beforeDir="false" afterPath="$PROJECT_DIR$/assets/media/musica-instrumental.mp3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/quinces-girl.png" beforeDir="false" afterPath="$PROJECT_DIR$/assets/images/quinces-girl.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ramo-azul-dorado-arco.png" beforeDir="false" afterPath="$PROJECT_DIR$/assets/images/ramo-azul-dorado-arco.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/script.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/seal.png" beforeDir="false" afterPath="$PROJECT_DIR$/assets/images/seal.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/assets/styles.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/wwd.mp3juice.blog - Ed Sheeran - Perfect (Official Music Video) (320 KBps) (1).mp3" beforeDir="false" afterPath="$PROJECT_DIR$/assets/media/wwd.mp3juice.blog - Ed Sheeran - Perfect (Official Music Video) (320 KBps) (1).mp3" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -43,6 +22,9 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/index.html" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 1

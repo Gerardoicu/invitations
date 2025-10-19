@@ -164,6 +164,7 @@ strong { color: #B58A2B; font-weight: 600; }
   opacity: 0;
   animation: showLetter 1 both;
   animation-timeline: --letterView;
+  margin-top: 10%;
   animation-range: entry 0% contain 20%;
 }
 

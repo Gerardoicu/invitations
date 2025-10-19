@@ -28,16 +28,17 @@ h2 {
 
 
 .verse {
+
   font-style: italic;
   font-size: 1.05rem;
   color: #204060;
-  text-align: center;
+  text-align: center !important;
   margin-bottom: 20px;
 }
 
 .small { font-size: 0.9rem; color: #2a4266; }
 
-.grid2 h2 { font-size: 1.2rem; margin-top: -10px; margin-bottom: 4px; color: #B58A2B; }
+.grid2 h2 {     font-size: clamp(26px, 3vw, 38px); font-family: "Montecarlo", cursive;  margin-top: -10px; margin-bottom: 4px; color: #B58A2B; }
 .grid2 p { line-height: 1.4; }
 
 strong { color: #B58A2B; font-weight: 600; }
@@ -146,7 +147,7 @@ strong { color: #B58A2B; font-weight: 600; }
 .letter {
   --w: min(92vw, 820px);
   --ratio: calc(11 / 8.5);
-
+  background: url("images/fondo-nubes.png") repeat-y;
   width: var(--w);
   aspect-ratio: 8.5 / 11;
   max-height: min(92vh, calc(var(--w) * var(--ratio)));
@@ -155,7 +156,6 @@ strong { color: #B58A2B; font-weight: 600; }
   transform: translateY(-50%) scale(.96);
   margin-inline: auto;
   border-radius: 12px;
-  background: #fff;
   box-shadow: 0 24px 60px rgba(0,0,0,.25), 0 2px 0 rgba(0,0,0,.05) inset;
   border: 1px solid #e8eef8;
   overflow: hidden;
@@ -193,7 +193,12 @@ strong { color: #B58A2B; font-weight: 600; }
 }
 
 .rule { height: 1px; background: linear-gradient(90deg, transparent, #EFD780 50%, transparent); margin: 8px 0 12px; }
-.p { line-height: 1.6; font-size: clamp(14px, 1.6vw, 17px); color: #2a4266; }
+.p {
+  text-align: justify;
+  line-height: 1.6;
+  font-family: "Playfair Display", serif;
+  font-size: clamp(16px, 1.8vw, 19px);
+  color: #2a4266; }
 .grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
 .tag { font-weight: 600; color: #1E355B; }
 
@@ -326,12 +331,12 @@ strong { color: #B58A2B; font-weight: 600; }
 .envelope-caption {
   margin-top: 24px; /* antes 300px — ahora queda pegado al sobre */
   text-align: center;
-  font-family: "Playfair Display", serif;
   font-style: italic;
-  font-size: 1.1rem;
-  color: #000;
   display: block;
   width: 100%;
+  font-family: "Montecarlo", cursive;
+  font-size: 3em;
+  color: #B58A2B;
 }
 
 /* capa de fondo que ya tienes en tu HTML */
@@ -446,7 +451,7 @@ strong { color: #B58A2B; font-weight: 600; }
 .hero-name {
   font-family: "Montecarlo", cursive;
   font-size: clamp(28px, 3vw, 40px);
-  background: linear-gradient(90deg, #B58A2B, #EFD780);
+  background: linear-gradient(90deg, #B58A2B, #B58A2B);
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -542,7 +547,6 @@ strong { color: #B58A2B; font-weight: 600; }
   transform: translateY(-50%) scale(.96);
   margin-inline: auto;
   border-radius: 12px;
-  background: #fff;
   box-shadow: 0 24px 60px rgba(0,0,0,.25),
   0 2px 0 rgba(0,0,0,.05) inset;
   border: 1px solid #e8eef8;
@@ -562,6 +566,7 @@ strong { color: #B58A2B; font-weight: 600; }
   display: flex;
   flex-direction: column;
   gap: 16px;
+  margin-top: 25%;
 }
 
 /* Animación de apertura */
@@ -590,13 +595,13 @@ strong { color: #B58A2B; font-weight: 600; }
 
 /* Izquierda */
 .flowers-top-left {
-  left: -6px;
+  left: 8px;
   transform: rotate(-2deg);
 }
 
 /* Derecha */
 .flowers-top-right {
-  right: -6px;
+  right: 8px;
   transform: rotate(2deg);
 }
 
@@ -630,7 +635,7 @@ strong { color: #B58A2B; font-weight: 600; }
 .circle-glow{
   position: relative;
   width: min(400px, 45vw);
-  margin: -70px auto 0;            /* súbelo un poco */
+  margin: 5px auto 0;            /* súbelo un poco */
   display:flex; justify-content:center; align-items:center;
   transform: translateX(-10%);      /* a la derecha */
   z-index: 1;                       /* debajo de la chica */
@@ -652,13 +657,12 @@ strong { color: #B58A2B; font-weight: 600; }
 .xv-label{
   position: relative;
   width: fit-content;
-  margin: -350px auto 0;            /* coloca el bloque sobre el círculo */
-  text-align:center;
+  margin: -250px auto 0;            /* coloca el bloque sobre el círculo */
   left: -10px;
   color:#B58A2B;
-  text-shadow:0 1px 0 rgba(0,0,0,.06);
+  text-shadow:1px 1px 1px rgb(181, 138, 43);
   transform: translateX(-10%);
-  z-index: 2;                      /* por encima del círculo */
+  z-index: 4;                      /* por encima del círculo */
 }
 .xv-label .mis,
 .xv-label .anos{
@@ -678,6 +682,7 @@ strong { color: #B58A2B; font-weight: 600; }
   background-clip: text;
   -webkit-text-fill-color: transparent;
   color: transparent;
+
 }
 
 /* Asegura posicionamiento relativo del banner/contenedor */
@@ -687,7 +692,7 @@ strong { color: #B58A2B; font-weight: 600; }
 .butterflies-left{
   position: absolute;
   left: 8%;              /* mueve más/menos a la izquierda */
-  bottom: 12%;           /* sube/baja el grupo */
+  bottom: 67%;           /* sube/baja el grupo */
   width: 190px; height: 220px;
   pointer-events: none;
   z-index: 3;            /* por encima del círculo, debajo/encima de la chica según necesites */
@@ -744,7 +749,7 @@ strong { color: #B58A2B; font-weight: 600; }
 }
 
 .quinces-girl {
-  margin-bottom: -250px; /* empuja hacia arriba el separador */
+  margin-bottom: -30%; /* empuja hacia arriba el separador */
 }
 .ornate-divider {
   display: block;
@@ -769,7 +774,7 @@ img.ornate-divider {
 
 .parents-flowers {
   position: absolute;
-  top: 1300px;                /* ajústalo si quieres que baje o suba */
+  top: 995px;                /* ajústalo si quieres que baje o suba */
   right: 620px;         /* mueve la flor a la derecha del texto */
   width: clamp(140px, 18vw, 220px);
   height: auto;
@@ -792,21 +797,27 @@ img.ornate-divider {
 }
 
 .parents-names {
-  font-family: "Playfair Display", serif;
-  font-size: clamp(18px, 2vw, 22px);
-  line-height: 1.5;
-  color: #2a2a2a;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
   margin: 0;
 }
 
-.parents-names .and {
+.parents-names span {
   display: block;
-  font-family: "MonteCarlo", cursive;
-  font-size: clamp(24px, 2.5vw, 32px);
-  color: #B58A2B;
-  margin: 2px 0;
+  margin: 0;
+  line-height: 1.1;   /* base uniforme */
 }
 
+/* la “y” más decorativa, pero manteniendo mismo espaciado */
+.parents-names .and {
+  font-family: "MonteCarlo", cursive;
+  font-size: 60px;
+  color: #B58A2B;
+  margin-top: -3%;
+  margin-bottom: 1%;
+}
 .parents-invite {
   margin-top: 10px;
   font-style: italic;
@@ -831,13 +842,6 @@ img.ornate-divider {
   margin: 0;
 }
 
-.parents-names .and {
-  display: block;
-  font-family: "MonteCarlo", cursive;
-  font-size: clamp(24px, 2.5vw, 32px);
-  color: #B58A2B;
-  margin: 2px 0;
-}
 
 /* frase */
 .parents-invite {
@@ -863,7 +867,7 @@ img.ornate-divider {
 .quince-name {
   font-family: "Montecarlo", cursive;
   font-size: clamp(26px, 3.2vw, 42px);
-  background: linear-gradient(90deg, #B58A2B, #EFD780);
+  background-color: #B58A2B;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   color: transparent;
@@ -871,7 +875,7 @@ img.ornate-divider {
 /* ======= Bloque de fecha ======= */
 .date-block {
   position: relative;
-  margin-top: 24px;
+  margin-top: 50px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -897,7 +901,7 @@ img.ornate-divider {
 .date-text .month {
   position: absolute;
   top: -24px;
-  left: 50%;
+  left: 60%;
   transform: translateX(-50%);
   font-family: "Playfair Display", serif;
   font-size: 0.9rem;
@@ -959,13 +963,6 @@ img.ornate-divider {
   margin: 0;
 }
 
-.godparents-names .and {
-  display: block;
-  font-family: "MonteCarlo", cursive;
-  font-size: clamp(24px, 2.5vw, 32px);
-  color: #B58A2B;
-  margin: 2px 0;
-}
 /* ===== Recepción (versión pequeña) ===== */
 .reception-arch {
   position: relative;
@@ -1233,20 +1230,44 @@ img.ornate-divider {
 
 .section-title {
   font-family: "MonteCarlo", cursive;
-  font-size: 1.8rem;
+  font-size: clamp(26px, 3vw, 38px);
   color: #B58A2B;
   margin-bottom: 8px;
 }
+.confirm-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px; /* Espaciado entre icono y texto */
+  background-color: #25D366;
+  color: white;
+  font-weight: 600;
+  text-decoration: none;
+  padding: 10px 18px;
+  border-radius: 8px;
+  transition: background-color 0.2s ease;
+}
 
+.confirm-btn:hover {
+  background-color: #1EBE57;
+}
+
+.whatsapp-icon {
+  width: 50px;
+  height: 50px;
+  vertical-align: middle;
+}
 .gift-icon {
+  display: block;
+  margin: 8px auto 12px;
   width: 80px;
   height: auto;
-  margin: 8px 0 12px;
-  filter: drop-shadow(0 2px 4px rgba(0,0,0,.15));
+  filter: none;
+  opacity: 1;
 }
 
 .gift-text {
-  font-size: 1rem;
+  font-family: "Playfair Display", serif;
+  font-size: clamp(16px, 1.8vw, 19px);
   color: #1E355B;
   line-height: 1.6;
   margin-bottom: 28px;
@@ -1289,10 +1310,9 @@ img.ornate-divider {
 /* Texto centrado */
 .final-text {
   font-family: "MonteCarlo", cursive;
-  font-size: 2rem;
+  font-size: clamp(26px, 3vw, 38px);
   color: #B58A2B;
   margin-bottom: 70px;
-  text-shadow: 0 1px 2px rgba(0,0,0,0.15);
   display: inline-block;
   text-align: center;
   width: 100%;
@@ -1334,15 +1354,16 @@ img.ornate-divider {
 
 /* Quinceañera */
 .final-girl {
-  position: absolute;
+  position: relative;
   right: 10%;
   bottom: -5px;
-  width: clamp(140px, 18vw, 220px);
+  width: clamp(300px, 40vw, 500px); /* 🔹 más grande en todos los tamaños */
   height: auto;
   filter: drop-shadow(0 4px 6px rgba(0,0,0,.15));
   opacity: 0.95;
   z-index: 2;
 }
+
 
 /* Flores al lado izquierdo de la quinceañera */
 .final-flowers {
@@ -1403,7 +1424,7 @@ img.ornate-divider {
 }
 
 .attire-title {
-  font-size: 1.8rem;
+  font-size:clamp(26px, 3vw, 38px);
   color: #B58A2B;
   margin-bottom: 20px;
   text-shadow: 0 1px 2px rgba(0,0,0,0.15);
@@ -1441,14 +1462,15 @@ img.ornate-divider {
 }
 
 .attire-flowers {
-  position: relative;
-  top: -150px;            /* 🔹 sube la imagen */
-  right: -290px;          /* 🔹 muévela más hacia la derecha */
+  position: absolute;
+  top: -13px;            /* 🔹 sube la imagen */
+  right: -45px;          /* 🔹 muévela más hacia la derecha */
   width: clamp(100px, 16vw, 180px); /* 🔹 más pequeña */
   height: auto;
   opacity: 0.95;
   filter: drop-shadow(0 3px 6px rgba(0, 0, 0, .25));
   transition: all 0.3s ease;
+  z-index: 1;
 }
 
 .reception-cups-png{
@@ -1475,7 +1497,9 @@ img.ornate-divider {
   .xv-label { margin-top: -240px; left: 0; transform: none; }
 
   .flowers-top-left,
-  .flowers-top-right { width: clamp(200px, 32vw, 420px); top: -24px; }
+  .flowers-top-right {
+    width: clamp(200px, 32vw, 420px);
+    top: -38px; }
 }
 
 /* Móviles ≤ 768px */
@@ -1489,12 +1513,14 @@ img.ornate-divider {
   .letter { --w: min(94vw, 720px); }                  /* carta un poco más angosta en móviles */
 
   .quinces-crown { width: clamp(120px, 22vw, 180px); }
-  .circle-glow { width: min(380px, 84vw); margin-top: -30px; }
+  .circle-glow { width: min(380px, 84vw); margin-top: 5%; }
   .xv-label { margin-top: -200px; }
 
   .quinces-girl {
     width: clamp(220px, 58vw, 300px);
-    margin: -30px auto 0 auto;                       /* centrada sin romper composición */
+    margin-left: 35%;
+    margin-top: -10%;
+    /* margin: -30px auto 0 auto;                       /* centrada sin romper composición */
   }
 
   .parents-flowers {
@@ -1502,7 +1528,7 @@ img.ornate-divider {
     width: clamp(110px, 26vw, 180px);
   }
 
-  .final-flowers { width: clamp(180px, 48vw, 300px); }
+  .final-flowers { width: clamp(300px, 48vw, 300px); }
 }
 .envelope { perspective: 900px; transform-style: preserve-3d; position: relative; z-index: 1; }
 
@@ -1800,3 +1826,30 @@ body.scrolled .flap-left::after{
 @media (max-width: 768px) {
   .maps-grid { grid-template-columns: 1fr; }
 }
+/* Grupo adicional de mariposas en otra parte de la carta */
+.butterflies-bottom {
+  position: absolute;
+  bottom: 59%;     /* distancia desde la parte inferior */
+  right: 78%;      /* puedes moverlo más a la derecha o izquierda */
+  width: 180px;
+  height: 200px;
+  pointer-events: none;
+  z-index: 3;
+}
+
+/* Reutiliza la misma animación */
+.butterflies-bottom .bf {
+  position: absolute;
+  width: 56px;
+  height: auto;
+  opacity: .95;
+  filter: drop-shadow(0 3px 6px rgba(239,215,128,.45));
+  transform-origin: 50% 45%;
+  animation: wing .8s ease-in-out infinite alternate, path 8s ease-in-out infinite;
+}
+
+/* Ajusta las posiciones de cada una */
+.butterflies-bottom .bf1 { top: 0%; left: 20%; animation-delay: 0s, 0s; }
+.butterflies-bottom .bf2 { top: 90%; left: 80%; transform: scale(.9) rotate(-12deg); animation-delay: .2s, 1.2s; }
+.butterflies-bottom .bf3 { top: 1190%; left: 10%; transform: scale(1.1) rotate(10deg); animation-delay: .4s, 2.4s; }
+

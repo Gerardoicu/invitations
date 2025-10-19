@@ -20,8 +20,33 @@ document.addEventListener("DOMContentLoaded", () => {
     const audio = $("#bgMusic");
     if (!seal || !letterStage || !hero || !letter || !audio) return;
 
-    // ---- fade helper ----
+    // ---- helpers audio ----
+    const START_SEC = 20;          // 🔸 cambia aquí si quieres otro segundo de inicio
+    const DELAY_MS = 0;            // 🔸 si quieres retraso tras el clic, pon 30000 (30 s). 0 = sin retraso
     let fadeId = 0;
+
+    // reproduce desde X segundos con tolerancia de carga
+    const playFrom = async (sec) => {
+        clearInterval(fadeId);
+        try {
+            // si ya hay metadata, se puede saltar
+            if (audio.readyState >= 1) {
+                audio.currentTime = Math.min(sec, (audio.duration || sec));
+            } else {
+                // esperar metadata una sola vez
+                await new Promise((res, rej) => {
+                    const onMeta = () => { audio.removeEventListener("loadedmetadata", onMeta); res(); };
+                    const onErr = () => { audio.removeEventListener("error", onErr); res(); };
+                    audio.addEventListener("loadedmetadata", onMeta, { once: true });
+                    audio.addEventListener("error", onErr, { once: true });
+                });
+                try { audio.currentTime = Math.min(sec, (audio.duration || sec)); } catch {}
+            }
+            audio.volume = 1;
+            await audio.play();
+        } catch {}
+    };
+
     const fadeTo = (target, step = 0.1, everyMs = 30) => {
         clearInterval(fadeId);
         try { audio.play(); } catch {}
@@ -34,7 +59,7 @@ document.addEventListener("DOMContentLoaded", () => {
     };
 
     let audioArmed = false;
-    let isAnimating = false; // <- evita silenciar durante el scroll programado
+    let isAnimating = false; // evita silenciar durante el scroll programado
 
     // ----- click sello -----
     seal.addEventListener("click", async () => {
@@ -44,16 +69,15 @@ document.addEventListener("DOMContentLoaded", () => {
             nameEl.classList.add("is-typing");
         }
 
-        // Reproduce YA y audible
         audioArmed = true;
-        clearInterval(fadeId);
-        audio.volume = 1;
-        // Opcional: fuerza decodificación y arranque en 0s
-        try { audio.currentTime = 0; } catch {}
-        try { await audio.play(); } catch {}
-
-        // Marca animación para no silenciar por "top"
         isAnimating = true;
+
+        // 🔹 reproducir desde 30s (o el valor en START_SEC)
+        if (DELAY_MS > 0) {
+            setTimeout(() => { playFrom(START_SEC); }, DELAY_MS);
+        } else {
+            playFrom(START_SEC);
+        }
 
         // scroll suave ~2.5s
         const targetY = letterStage.offsetTop;
@@ -69,7 +93,6 @@ document.addEventListener("DOMContentLoaded", () => {
             if (p < 1) {
                 requestAnimationFrame(animateScroll);
             } else {
-                // terminó la animación
                 isAnimating = false;
                 onScroll(); // ajusta estado final
             }
@@ -93,11 +116,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 const atTop = window.scrollY === 0;
                 // mientras animamos, mantener audible
                 const want = (atTop && !isAnimating) ? 0 : 1;
-                // cambios rápidos y sin “lag”
-                if (Math.abs(audio.volume - want) > 0.01) {
-                    // primera vez a 1 ya se hizo inmediato; aquí usa fade para transiciones
-                    fadeTo(want);
-                }
+                if (Math.abs(audio.volume - want) > 0.01) fadeTo(want);
             }
             ticking = false;
         });

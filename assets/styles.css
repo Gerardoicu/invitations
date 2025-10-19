@@ -23,7 +23,6 @@ h2 {
   letter-spacing: 0.05em;
   margin-top: -10px;  /* 🔹 súbelo (ajusta -10, -15, -20px según veas) */
   margin-bottom: 4px; /* mantiene el espacio inferior corto */
-  text-transform: uppercase;
 }
 
 
@@ -801,7 +800,7 @@ img.ornate-divider {
   flex-direction: column;
   align-items: center;
   text-align: center;
-  margin: 10%;
+  margin: 15%;
 }
 
 .parents-names span {
@@ -815,7 +814,7 @@ img.ornate-divider {
   font-family: "MonteCarlo", cursive;
   font-size: 60px;
   color: #B58A2B;
-  margin-bottom: 4%;
+  margin-bottom: 10%;
 }
 .parents-invite {
   margin-top: 10px;

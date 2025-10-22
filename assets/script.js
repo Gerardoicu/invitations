@@ -133,7 +133,7 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 // ===== countdown =====
-const targetDate = new Date("December 13, 2025 16:30:00").getTime();
+const targetDate = new Date("December 20, 2025 19:30:00").getTime();
 function updateCountdown() {
     const now = Date.now();
     const diff = targetDate - now;

@@ -194,7 +194,7 @@ strong { color: #B58A2B; font-weight: 600; }
 
 .rule { height: 1px; background: linear-gradient(90deg, transparent, #EFD780 50%, transparent); margin: 8px 0 12px; }
 .p {
-  text-align: justify;
+  text-align: center;
   line-height: 1.6;
   font-family: "Playfair Display", serif;
   font-size: clamp(16px, 1.8vw, 19px);
@@ -1806,3 +1806,21 @@ body.scrolled .flap-left::after{
 .butterflies-bottom .bf2 { top: 90%; left: 80%; transform: scale(.9) rotate(-12deg); animation-delay: .2s, 1.2s; }
 .butterflies-bottom .bf3 { top: 1190%; left: 10%; transform: scale(1.1) rotate(10deg); animation-delay: .4s, 2.4s; }
 
+/* --- Dress code --- */
+.dresscode-section { text-align: center; margin: 18px 0 8px; }
+.dresscode-line {
+
+}
+.dresscode-line strong { font-weight: 700; }
+.rule-chip {
+  display: inline-block;
+  margin-left: 8px;
+  padding: 2px 8px;
+  border: 1px solid rgba(212,175,55,0.7);
+  border-radius: 999px;
+  font-weight: 700;
+  font-size: 0.92rem;
+  color: #1E355B;
+
+  letter-spacing: 0.02em;
+}

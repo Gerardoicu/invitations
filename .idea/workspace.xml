@@ -6,7 +6,9 @@
   <component name="ChangeListManager">
     <list default="true" id="fafb37c0-a330-449a-ab53-97b7606bb64c" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/script.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/script.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/assets/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/assets/styles.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -31,6 +33,7 @@
   &quot;keyToString&quot;: {
     &quot;JavaScript Debug.index.html.executor&quot;: &quot;Run&quot;,
     &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
+    &quot;Node.js.script.js.executor&quot;: &quot;Run&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
     &quot;git-widget-placeholder&quot;: &quot;main&quot;,
@@ -67,7 +70,9 @@
       <updated>1760494946975</updated>
       <workItem from="1760494948219" duration="6834000" />
       <workItem from="1760758030582" duration="12688000" />
-      <workItem from="1760893130881" duration="1202000" />
+      <workItem from="1760893130881" duration="4330000" />
+      <workItem from="1761017859000" duration="1862000" />
+      <workItem from="1761104976931" duration="1521000" />
     </task>
     <servers />
   </component>
